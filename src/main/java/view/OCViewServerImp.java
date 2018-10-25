@@ -2,6 +2,8 @@ package view;
 
 import java.io.File;
 import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
 import java.util.List;
 import java.util.ArrayList;
 import server.Accion.*;
@@ -32,10 +34,10 @@ public class OCViewServerImp implements OCViewServer{
 		accionesActuales.add(accionFactory.crearAccionDefault("Codigo_Compilado",codigo));		
 	}
 	public void updateRegistros(Map<Integer,String> registros){
-		accionesActuales.add(accionFactory.crearAccionCambio("Update_Registros",registros));	
+		accionesActuales.add(accionFactory.crearAccionCambio("Update_Registros",registros.entrySet()));	
 	}
 	public void updateMemoria(Map<Integer,String> memoria){
-		accionesActuales.add(accionFactory.crearAccionCambio("Update_Memoria",memoria));	
+		accionesActuales.add(accionFactory.crearAccionCambio("Update_Memoria",memoria.entrySet()));	
 	}
 	public void updatePCView(String pc){
 		accionesActuales.add(accionFactory.crearAccionDefault("Set_PC",pc));		

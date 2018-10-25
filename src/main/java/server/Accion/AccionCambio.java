@@ -1,6 +1,7 @@
 package server.Accion;
 
-import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 public interface AccionCambio extends Accion{
-    public Map<Integer,String> getParametro();
+    public Set<Map.Entry<K,V>> getParametro();
 }
