@@ -207,17 +207,17 @@ Vue.component('panelcode-app',{
   },
   methods:{
     Compilar:function(){
-      //var data={"codigoFuente":this.panel.value, "direccionInicio": this.panel.direccionInicio};
-
+      var dataBody={"codigoFuente":this.panel.value, "direccionInicio": this.panel.direccionInicio};
       $.ajax({
-        method: "GET",
-        crossDomain: true,
-        url: "https://cors-test-java.herokuapp.com/greeting-javaconfig",    
+        method: "POST",
+        url: "/compilar", 
+        data: JSON.stringify(dataBody),  
         headers:{
-          contentType: "text/plain; charset=utf-8",
+          "Content-Type": "application/json",
         },
         success: function(data,textStatus){
          console.log("data: "+JSON.stringify(data));
+         console.log(data);
           console.log("textStatus: "+textStatus);
         },
         error:function(textStatus,errorThrown){
