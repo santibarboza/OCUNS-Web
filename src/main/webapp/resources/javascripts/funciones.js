@@ -84,3 +84,17 @@ function mostrarSimulacion(){
                     this.bigSize='col-md-12';
    }
 }
+function interpretarData(data){
+    $.each(data, function( index, accion ) {
+        switch (accion.codigoAccion) {
+            case "Codigo_Compilado":
+                vm.panelCompilado.value=accion.parametro;
+                break;
+            case "Mostrar_Mensaje":
+                console.log("Mostrar Mensaje"+accion.parametro);
+                break;
+            default:
+                console.log("default");
+        }
+    });
+}
