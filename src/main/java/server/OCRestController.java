@@ -119,7 +119,7 @@ public class OCRestController {
     @CrossOrigin(origins = "*")
     @RequestMapping("/test1")
     public List<Accion> test1(@RequestParam(value="id", defaultValue="111") String id) {
-        OCPresenter presenter = OCPresenterServerModule.getInstance().startApplication();
+        OCPresenter presenter = OCPresenterServerModule.getInstance().startApplication(id);
         OCViewServer view=OCPresenterServerModule.getInstance().getOCView();
         presenter.updatePCView("PCViejo");
         presenter.updatePCView("PCNuevo");
