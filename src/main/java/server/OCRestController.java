@@ -89,7 +89,7 @@ public class OCRestController {
         obtenerView();
         obtenerMemoriaMongo();
     }
-    private void iniciarPresenter(){
+    private void iniciarPresenter(String idUsuario){
         presenter = OCPresenterServerModule.getInstance().startApplication(idUsuario);
     }
     private void obtenerView(){
