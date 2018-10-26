@@ -254,13 +254,13 @@ var vm=new Vue({
   },
   data:{
       panelCode:{
-        value:"aca iria T el codigo fuente",
+        value:"Codigo Fuente",
         direccionInicio:"00",
         size:4,
         ver:true
       },
       panelCompilado:{
-        value:"aca iria el codigo", 
+        value:"Codigo Compilado", 
         size:3,
         ver:true,
         habilitaEjecucion:false
@@ -271,7 +271,7 @@ var vm=new Vue({
         registros:[],
         memorias:[],
         logs:{
-          value:"aca se mostrarian los logs"
+          value:"Logs:\n"
         }
       },
       distribucionVentanas:[
@@ -331,8 +331,11 @@ var vm=new Vue({
     habilitarEjecucion: function(){
         this.panelCompilado.habilitaEjecucion=true;
     },
-    habilita_EjecucionPAP(cond){
+    habilita_EjecucionPAP:function(cond){
       this.habilita_PAP=cond;
+    },
+    agregarLog:function(logNuevo){
+      this.panelSimulacion.log.value+=logNuevo+"\n";
     },
     getPanel:function(i){
       switch(i){

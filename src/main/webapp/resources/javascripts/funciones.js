@@ -111,6 +111,9 @@ function interpretarData(data){
             case "Deshabilitar_Opciones_PAP":
                 vm.habilita_EjecucionPAP(false);
                 break;
+            case "Update_Logs":
+                vm.agregarLog(accion.parametro);
+                break;
             case "Set_PC":
                 vm.updateIR({ir:vm.pc});
                 vm.updatePC(accion.parametro);
