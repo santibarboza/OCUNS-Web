@@ -1,12 +1,11 @@
 package server.Accion;
-import java.util.Map.Entry;
-import java.util.Set;
+import java.util.List;
 
 public class AccionCambioImp implements AccionCambio{
     private final String codigoAccion;
-    private final Set<Entry<Integer,String>> parametro;
+    private final List<Cambio> parametro;
 
-    public AccionCambioImp(String codigoAccion, Set<Entry<Integer,String>> parametro) {
+    public AccionCambioImp(String codigoAccion, List<Cambio> parametro) {
         this.codigoAccion = codigoAccion;
         this.parametro = parametro;
     }
@@ -15,7 +14,7 @@ public class AccionCambioImp implements AccionCambio{
         return codigoAccion;
     }
 
-    public Set<Entry<Integer,String>> getParametro() {
+    public List<Cambio> getParametro() {
         return parametro;
     }
 }

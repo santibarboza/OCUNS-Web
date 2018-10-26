@@ -34,10 +34,10 @@ public class OCViewServerImp implements OCViewServer{
 		accionesActuales.add(accionFactory.crearAccionDefault("Codigo_Compilado",codigo));		
 	}
 	public void updateRegistros(Map<Integer,String> registros){
-		accionesActuales.add(accionFactory.crearAccionCambio("Update_Registros",registros.entrySet()));	
+		accionesActuales.add(accionFactory.crearAccionCambio("Update_Registros",registros));	
 	}
 	public void updateMemoria(Map<Integer,String> memoria){
-		accionesActuales.add(accionFactory.crearAccionCambio("Update_Memoria",memoria.entrySet()));	
+		accionesActuales.add(accionFactory.crearAccionCambio("Update_Memoria",memoria));	
 	}
 	public void updatePCView(String pc){
 		accionesActuales.add(accionFactory.crearAccionDefault("Set_PC",pc));		
