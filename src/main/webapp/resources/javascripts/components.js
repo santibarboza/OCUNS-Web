@@ -284,7 +284,10 @@ var vm=new Vue({
         [8,4,0],  //6- Panel Code y Panel Compilado
         [4,3,5]   //7- Los 3 Paneles
       ],
-      id:"noID"
+      id:"noID",
+      pc:0,
+      ir:0,
+      habilita_PAP:false
   },
   methods:{
       updateRegistros: function(cambios){
@@ -327,6 +330,9 @@ var vm=new Vue({
     },
     habilitarEjecucion: function(){
         this.panelCompilado.habilitaEjecucion=true;
+    },
+    habilita_EjecucionPAP(cond){
+      this.habilita_PAP=cond;
     },
     getPanel:function(i){
       switch(i){

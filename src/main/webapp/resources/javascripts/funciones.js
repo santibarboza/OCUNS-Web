@@ -103,7 +103,17 @@ function interpretarData(data){
                 vm.id=accion.parametro;
                 break;
             case "Habilitar_Ejecutar":
-                //evento quegenere la ejecucion
+                vm.habilitarEjecucion();
+                break;
+            case "Habilitar_Opciones_PAP":
+                vm.habilita_EjecucionPAP(true);
+                break;
+            case "Deshabilitar_Opciones_PAP":
+                vm.habilita_EjecucionPAP(false);
+                break;
+            case "Set_PC":
+                vm.updateIR({ir:vm.pc});
+                vm.updatePC(accion.parametro);
                 break;
             default:
                 console.log("default");
