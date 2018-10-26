@@ -177,6 +177,9 @@ Vue.component('panelcompilado-app',{
     getBigSize: function(){
         return "col-md-"+this.panel.size;
       },
+    getPanel: function(){
+        return this.panel;
+      }
   },
   created: function () {
     EventBus.$on('cambioSizePanel', function (cambios) {
@@ -260,6 +263,7 @@ var vm=new Vue({
         value:"aca iria el codigo", 
         size:3,
         ver:true
+        habilitaEjecucion:false;
       },
       panelSimulacion:{
         size:5,
@@ -320,6 +324,9 @@ var vm=new Vue({
     updateSizePaneles: function(index,ver){
         this.getPanel(index).ver=ver;
         this.updateSizes();
+    },
+    habilitarEjecucion: function(){
+        this.panelCompilado.habilitaEjecucion=true;
     },
     getPanel:function(i){
       switch(i){

@@ -167,7 +167,6 @@
                    <form role="form">
                         <textarea id="codigoCompilado"
                           rows="20"
-                          ng-model="code"
                           v-model="panel.value"
                           readonly>     
                         </textarea>
@@ -176,7 +175,7 @@
                                 <option>Todo el Código</option>
                                 <option>De a 1 Instrucción</option>
                             </select>   
-                            <button type="button" class="btn btn-default col-md-4" id="ejecutar">Ejecutar</button>
+                            <button type="button" class="btn btn-default col-md-4" :disabled="!panel.habilitaEjecucion" id="ejecutar">Ejecutar</button>
                         </div>
                     </form>
                 </div>
