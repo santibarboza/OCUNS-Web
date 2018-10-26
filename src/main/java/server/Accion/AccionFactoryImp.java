@@ -20,3 +20,4 @@ public class AccionFactoryImp implements AccionFactory{
 		}
 		return cambios;
 	}
+}
