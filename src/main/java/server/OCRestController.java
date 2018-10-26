@@ -72,7 +72,7 @@ public class OCRestController {
         if(esIDPorDefecto(id))
             return crearNuevaID();
         System.out.println("ID="+id+" por defecto="+esIDPorDefecto(id));
-        return id;
+        return id+"ID="+id+" por defecto="+esIDPorDefecto(id);
     }
     private boolean esIDPorDefecto(String idUsuario){
         return idUsuario.equals("noID");
