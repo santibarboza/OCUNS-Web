@@ -19,6 +19,9 @@ Vue.component('registro-app',{
     EventBus.$on('ultimoCambioRegistro', function (cambios) {
       this.ultimoCambio=cambios.includes(this.index) ;
     }.bind(this));
+    EventBus.$on('reset_Registro', function (cambios) {
+      this.registro.contenido="00";
+    }.bind(this));
   }  
 });
 
@@ -76,7 +79,7 @@ Vue.component('memoria-app',{
       this.esIR=(ir==this.index)||(ir+1==this.index);
     }.bind(this));
     EventBus.$on('reset_Memoria', function (cambios) {
-      this.memoria.contenido="02";
+      this.memoria.contenido="00";
     }.bind(this));
   }  
 });
@@ -220,6 +223,7 @@ Vue.component('panelcode-app',{
         },
         success: function(data,textStatus){
          console.log("Respuesta del server en /Compilar: \n"+JSON.stringify(data));
+         vm.resetAll();
          interpretarData(data);
         },
         error:function(textStatus,errorThrown){
@@ -237,13 +241,7 @@ Vue.component('panelcode-app',{
 var vm=new Vue({
   el:"#panelIde",
   created:function () {
-    var i;
-    for (i = 0; i < 16; i++) {
-      this.panelSimulacion.registros.push({contenido:"00"});
-    } 
-    for (i = 0; i < 256; i++) {
-      this.panelSimulacion.memorias.push({contenido:"00"});
-    }
+    this.resetAll();
   },
   data:{
       panelCode:{
@@ -299,6 +297,13 @@ var vm=new Vue({
     },
     resetMemoria: function(){
         EventBus.$emit('reset_Memoria');
+    },
+    resetRegistros: function(){
+        EventBus.$emit('reset_Registro');
+    },
+    resetAll: function(){
+      this.resetRegistro();
+      this.resetMemoria();
     },
     updatePC: function(pc){
         EventBus.$emit('nuevopc', pc.pc);
