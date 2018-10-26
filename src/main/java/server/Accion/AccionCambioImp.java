@@ -4,9 +4,9 @@ import java.util.Set;
 
 public class AccionCambioImp implements AccionCambio{
     private final String codigoAccion;
-    private final Set<Map.Entry<K,V>> parametro;
+    private final Set<Entry<Integer,String>> parametro;
 
-    public AccionCambioImp(String codigoAccion, Set<Map.Entry<K,V>> parametro) {
+    public AccionCambioImp(String codigoAccion, Set<Entry<Integer,String>> parametro) {
         this.codigoAccion = codigoAccion;
         this.parametro = parametro;
     }
@@ -15,7 +15,7 @@ public class AccionCambioImp implements AccionCambio{
         return codigoAccion;
     }
 
-    public Set<Map.Entry<K,V>> getParametro() {
+    public Set<Entry<Integer,String>> getParametro() {
         return parametro;
     }
 }
