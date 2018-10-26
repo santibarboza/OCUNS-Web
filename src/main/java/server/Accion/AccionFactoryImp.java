@@ -18,7 +18,7 @@ public class AccionFactoryImp implements AccionFactory{
 	private List<Cambio> getCambios(Map<Integer,String> parametro){
 		List<Cambio> cambios= new ArrayList<Cambio>();	
 		for (Map.Entry<Integer, String> entry : parametro.entrySet()) {
-    		cambios.add(new CambioImp(entry.getKey().toString(),entry.getValue()));
+    		cambios.add(new CambioImp(entry.getKey(),entry.getValue()));
 		}
 		return cambios;
 	}

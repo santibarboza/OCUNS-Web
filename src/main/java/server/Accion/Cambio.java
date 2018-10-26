@@ -1,6 +1,6 @@
 package server.Accion;
 
 public interface Cambio{
-    public String getKey();
+    public Integer getKey();
     public String getValue();
 }

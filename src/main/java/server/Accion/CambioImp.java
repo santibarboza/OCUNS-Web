@@ -1,13 +1,13 @@
 package server.Accion;
 
 public class CambioImp implements Cambio{
-	private final String key;
+	private final Integer key;
 	private final String value;
-	public CambioImp(String key,String value){
+	public CambioImp(Integer key,String value){
 		this.key=key;
 		this.value=value;
 	}
-    public String getKey(){
+    public Integer getKey(){
     	return key;
     }
     public String getValue(){
