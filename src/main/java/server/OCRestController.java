@@ -23,56 +23,67 @@ import model.MemoriaMongo.*;
 
 @RestController
 public class OCRestController {
+    private String idUsuario
     private OCPresenter presenter;
     private OCViewServer view;
     private MemoriaMongo memoriaMongo;
     private BodyCompilado lastBody;
 
     @PostMapping("/compilar")
-    public List<Accion> compilar(@RequestBody BodyCompilado body,@RequestParam(value="id", defaultValue="IdDefault") String idUsuario){
-        iniciarAplicacion(idUsuario);
-        reiniciarMemoria(idUsuario);
+    public List<Accion> compilar(@RequestBody BodyCompilado body,@RequestParam(value="id", defaultValue="IdDefault") String id){
+        iniciarAplicacion(id);
+        reiniciarMemoria();
         realizarcompilacion(body);
         guardarMemoria();
-        return obtenerAccionesRealizadas(idUsuario);
+        return obtenerAccionesRealizadas();
     }
 
     @RequestMapping("/iniciarEjecucion")
-    public List<Accion> iniciarEjecucion(@RequestParam(value="id") String idUsuario) {
-        iniciarAplicacion(idUsuario);
+    public List<Accion> iniciarEjecucion(@RequestParam(value="id") String id) {
+        iniciarAplicacion(id);
         //iniciarMemoria();
         realizarIniciarEjecucion();
         guardarMemoria();
         return obtenerAccionesRealizadas(idUsuario);
     }
     @RequestMapping("/siguientePaso")
-    public List<Accion> siguientePaso(@RequestParam(value="id") String idUsuario) {
-        iniciarAplicacion(idUsuario);
+    public List<Accion> siguientePaso(@RequestParam(value="id") String id) {
+        iniciarAplicacion(id);
         realizarSiguientePaso();
         guardarMemoria();
         return obtenerAccionesRealizadas(idUsuario);
     }
     @RequestMapping("/setLectura")
-    public List<Accion> siguientePaso(@RequestParam(value="id") String idUsuario,@RequestParam(value="leer") String lectura) {
-        iniciarAplicacion(idUsuario);
+    public List<Accion> siguientePaso(@RequestParam(value="id") String id,@RequestParam(value="leer") String lectura) {
+        iniciarAplicacion(id);
         leerValor(lectura);
         realizarSiguientePaso();
         guardarMemoria();
         return obtenerAccionesRealizadas(idUsuario);
+    }
+    private void leerValor(String lectura) {
+        view.setLectura(lectura);
     }
     @RequestMapping("/detenerEjecucion")
     public List<Accion> detenerEjecucion(@RequestParam(value="id") String idUsuario) {
         return compilar(lastBody,idUsuario);
     }
     
-    private void leerValor(String lectura) {
-        view.setLectura(lectura);
+    
+    private void reiniciarMemoria(){
+        memoriaMongo.reiniciarMemoria();
+        obtenerAccionesRealizadas(idUsuario);
+    }
+    private void iniciarAplicacion(String id){
+        idUsuario=obtenerID(id);
+        iniciarPresenter();
+        obtenerView();
+        obtenerMemoriaMongo();
     }
     private String obtenerID(String id){
         if(esIDPorDefecto(id))
             return crearNuevaID();
-        System.out.println("ID="+id+" por defecto="+esIDPorDefecto(id));
-        return id+"ID="+id+" por defecto="+esIDPorDefecto(id);
+        return id;
     }
     private boolean esIDPorDefecto(String idUsuario){
         return idUsuario.equals("noID");
@@ -80,17 +91,7 @@ public class OCRestController {
     private String crearNuevaID(){
         return java.util.UUID.randomUUID().toString();
     }
-    private void reiniciarMemoria(String idUsuario){
-        memoriaMongo.reiniciarMemoria();
-        obtenerAccionesRealizadas(idUsuario);
-    }
-    private void iniciarAplicacion(String idUsuario){
-        idUsuario=obtenerID(idUsuario);
-        iniciarPresenter(idUsuario);
-        obtenerView();
-        obtenerMemoriaMongo();
-    }
-    private void iniciarPresenter(String idUsuario){
+    private void iniciarPresenter(){
         presenter = OCPresenterServerModule.getInstance().startApplication(idUsuario);
     }
     private void obtenerView(){
@@ -112,7 +113,7 @@ public class OCRestController {
     private void guardarMemoria(){
         memoriaMongo.guardarMemoria(); 
     }
-    private List<Accion> obtenerAccionesRealizadas(String idUsuario){
+    private List<Accion> obtenerAccionesRealizadas(){
         return view.obtenerAcciones(idUsuario);
     }
 
