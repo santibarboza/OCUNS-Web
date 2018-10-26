@@ -99,6 +99,12 @@ function interpretarData(data){
             case "Mostrar_Mensaje":
                 console.log("Mostrar Mensaje"+accion.parametro);
                 break;
+            case "set_ID":
+                vm.id=accion.parametro;
+                break;
+            case "Habilitar_Ejecutar":
+                //evento quegenere la ejecucion
+                break;
             default:
                 console.log("default");
         }

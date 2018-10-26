@@ -74,7 +74,7 @@ public class OCRestController {
         return id;
     }
     private boolean esIDPorDefecto(String idUsuario){
-        return idUsuario.equals("IdDefault");
+        return idUsuario.equals("noID");
     }
     private String crearNuevaID(){
         return java.util.UUID.randomUUID().toString();

@@ -210,7 +210,7 @@ Vue.component('panelcode-app',{
       var dataBody={"codigoFuente":this.panel.value, "direccionInicio": this.panel.direccionInicio};
       $.ajax({
         method: "POST",
-        url: "/compilar", 
+        url: "/compilar?id="+vm.id, 
         data: JSON.stringify(dataBody),  
         headers:{
           "Content-Type": "application/json",
@@ -272,7 +272,8 @@ var vm=new Vue({
         [7,0,5],  //5- Panel Code y Panel Simulacion
         [8,4,0],  //6- Panel Code y Panel Compilado
         [4,3,5]   //7- Los 3 Paneles
-      ]
+      ],
+      id:"noID"
   },
   methods:{
       updateRegistros: function(cambios){
