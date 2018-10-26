@@ -262,8 +262,8 @@ var vm=new Vue({
       panelCompilado:{
         value:"aca iria el codigo", 
         size:3,
-        ver:true
-        habilitaEjecucion:false;
+        ver:true,
+        habilitaEjecucion:false
       },
       panelSimulacion:{
         size:5,
