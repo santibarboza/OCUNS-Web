@@ -75,6 +75,9 @@ Vue.component('memoria-app',{
     EventBus.$on('nuevoir', function (ir) {
       this.esIR=(ir==this.index)||(ir+1==this.index);
     }.bind(this));
+    EventBus.$on('reset_Memoria', function (cambios) {
+      this.memoria.contenido:"02";
+    }.bind(this));
   }  
 });
 
@@ -293,6 +296,9 @@ var vm=new Vue({
             keys.push(cambio.key);
         });
         EventBus.$emit('ultimoCambioMemoria', keys);
+    },
+    resetMemoria: function(){
+        EventBus.$emit('reset_Memoria');
     },
     updatePC: function(pc){
         EventBus.$emit('nuevopc', pc.pc);
