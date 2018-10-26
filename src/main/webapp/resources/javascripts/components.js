@@ -302,7 +302,7 @@ var vm=new Vue({
         EventBus.$emit('reset_Registro');
     },
     resetAll: function(){
-      this.resetRegistro();
+      this.resetRegistros();
       this.resetMemoria();
     },
     updatePC: function(pc){
