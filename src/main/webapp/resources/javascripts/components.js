@@ -76,7 +76,7 @@ Vue.component('memoria-app',{
       this.esIR=(ir==this.index)||(ir+1==this.index);
     }.bind(this));
     EventBus.$on('reset_Memoria', function (cambios) {
-      this.memoria.contenido:"02";
+      this.memoria.contenido="02";
     }.bind(this));
   }  
 });
