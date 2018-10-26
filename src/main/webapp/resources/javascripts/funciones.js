@@ -90,6 +90,12 @@ function interpretarData(data){
             case "Codigo_Compilado":
                 vm.panelCompilado.value=accion.parametro;
                 break;
+            case "Update_Memoria":
+                vm.updateMemoria(accion.parametro);
+                break;
+            case "Update_Registros":
+                vm.updateRegistros(accion.parametro);
+                break;
             case "Mostrar_Mensaje":
                 console.log("Mostrar Mensaje"+accion.parametro);
                 break;
