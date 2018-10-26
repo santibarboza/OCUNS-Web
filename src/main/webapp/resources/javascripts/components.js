@@ -330,9 +330,7 @@ var vm=new Vue({
         if(this.panelSimulacion.ver) opcion+=1;
         if(this.panelCompilado.ver) opcion+=2;
         if(this.panelCode.ver) opcion+=4;
-        EventBus.$emit('newSize', this.distribucionVentanas[opcion]);
-
-        
+        EventBus.$emit('newSize', this.distribucionVentanas[opcion]);        
     }
   }
 });
