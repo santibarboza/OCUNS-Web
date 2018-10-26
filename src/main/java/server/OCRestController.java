@@ -23,7 +23,7 @@ import model.MemoriaMongo.*;
 
 @RestController
 public class OCRestController {
-    private String idUsuario
+    private String idUsuario;
     private OCPresenter presenter;
     private OCViewServer view;
     private MemoriaMongo memoriaMongo;
