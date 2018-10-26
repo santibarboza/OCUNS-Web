@@ -216,15 +216,15 @@ Vue.component('panelcode-app',{
           "Content-Type": "application/json",
         },
         success: function(data,textStatus){
-         console.log("data: "+JSON.stringify(data));
-         console.log(data);
+         console.log("Respuesta del server en /Compilar: \n"+JSON.stringify(data));
          interpretarData(data);
         },
         error:function(textStatus,errorThrown){
-          console.log("EError "+errorThrown+"... "+textStatus);
+          console.log("Error "+errorThrown+"... "+textStatus);
         }
       });
-      console.log("Codigo Fuente: "+this.panel.value);
+      console.log("Se envio un POST a /compilar con");
+      console.log("Codigo Fuente: \n"+this.panel.value);
       console.log("Direccion de Inicio: "+this.panel.direccionInicio);
     }
   }      
