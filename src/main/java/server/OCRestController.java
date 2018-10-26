@@ -71,6 +71,7 @@ public class OCRestController {
     private String obtenerID(String id){
         if(esIDPorDefecto(id))
             return crearNuevaID();
+        System.out.println("ID="+id+" por defecto="+esIDPorDefecto(id));
         return id;
     }
     private boolean esIDPorDefecto(String idUsuario){
@@ -116,7 +117,6 @@ public class OCRestController {
     }
 
 
-    @CrossOrigin(origins = "*")
     @RequestMapping("/test1")
     public List<Accion> test1(@RequestParam(value="id", defaultValue="111") String id) {
         OCPresenter presenter = OCPresenterServerModule.getInstance().startApplication(id);
@@ -131,7 +131,6 @@ public class OCRestController {
         return body;
     }
 
-    @CrossOrigin(origins = "https://santibarboza.github.io/")
     @RequestMapping("/test3")
     public BodyCompilado test3(@RequestParam(value="id", defaultValue="111") String id) {
         return new BodyCompilado("0E", "Codigo Milagroso");
