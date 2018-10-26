@@ -44,14 +44,14 @@ public class OCRestController {
         //iniciarMemoria();
         realizarIniciarEjecucion();
         guardarMemoria();
-        return obtenerAccionesRealizadas(idUsuario);
+        return obtenerAccionesRealizadas();
     }
     @RequestMapping("/siguientePaso")
     public List<Accion> siguientePaso(@RequestParam(value="id") String id) {
         iniciarAplicacion(id);
         realizarSiguientePaso();
         guardarMemoria();
-        return obtenerAccionesRealizadas(idUsuario);
+        return obtenerAccionesRealizadas();
     }
     @RequestMapping("/setLectura")
     public List<Accion> siguientePaso(@RequestParam(value="id") String id,@RequestParam(value="leer") String lectura) {
@@ -59,7 +59,7 @@ public class OCRestController {
         leerValor(lectura);
         realizarSiguientePaso();
         guardarMemoria();
-        return obtenerAccionesRealizadas(idUsuario);
+        return obtenerAccionesRealizadas();
     }
     private void leerValor(String lectura) {
         view.setLectura(lectura);
@@ -72,7 +72,7 @@ public class OCRestController {
     
     private void reiniciarMemoria(){
         memoriaMongo.reiniciarMemoria();
-        obtenerAccionesRealizadas(idUsuario);
+        obtenerAccionesRealizadas();
     }
     private void iniciarAplicacion(String id){
         idUsuario=obtenerID(id);
@@ -125,7 +125,7 @@ public class OCRestController {
         presenter.updatePCView("PCViejo");
         presenter.updatePCView("PCNuevo");
         presenter.updateLogs("LogNuevo");
-        return obtenerAccionesRealizadas(id);
+        return obtenerAccionesRealizadas();
     }
     @PostMapping("/test2")
     public BodyCompilado test2(@RequestBody BodyCompilado body) {
