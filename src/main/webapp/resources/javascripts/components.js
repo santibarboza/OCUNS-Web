@@ -241,7 +241,13 @@ Vue.component('panelcode-app',{
 var vm=new Vue({
   el:"#panelIde",
   created:function () {
-    this.resetAll();
+    var i;
+    for (i = 0; i < 16; i++) {
+      this.panelSimulacion.registros.push({contenido:"00"});
+    } 
+    for (i = 0; i < 256; i++) {
+      this.panelSimulacion.memorias.push({contenido:"00"});
+    }
   },
   data:{
       panelCode:{
