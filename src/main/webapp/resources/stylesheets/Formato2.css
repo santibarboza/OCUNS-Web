@@ -43,6 +43,7 @@ font-weight: 400;
 #tipoEjecucion{
     padding-right: 5px;
     padding-left: 0px;
+    display: block !important;
 }
 .btn-group.bootstrap-select.col-md-8 {
     padding-right: 5px;
