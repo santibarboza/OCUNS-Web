@@ -335,7 +335,7 @@ var vm=new Vue({
       this.habilita_PAP=cond;
     },
     agregarLog:function(logNuevo){
-      this.panelSimulacion.log.value+=logNuevo+"\n";
+      this.panelSimulacion.logs.value+=logNuevo+"\n";
     },
     getPanel:function(i){
       switch(i){
