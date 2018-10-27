@@ -116,7 +116,7 @@ function interpretarData(data){
                 break;
             case "Set_PC":
                 vm.updateIR({ir:vm.pc});
-                vm.updatePC(accion.parametro);
+                vm.updatePC({pc:accion.parametro});
                 break;
             default:
                 console.log("default");

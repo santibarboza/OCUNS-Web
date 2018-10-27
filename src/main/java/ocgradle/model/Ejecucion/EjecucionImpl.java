@@ -244,22 +244,27 @@ public class EjecucionImpl implements Ejecucion{
 	}
 	private void updateLogExecute(){
 		String log="Execute: ";
+		String rd="R"+hexaV(registroDIndex);
+		String bufferRD=hexa(bufferRegistroD);
+		String textoDesplazamiento=hexa(desplazamiento);
+		String textoPC=hexa(pc);
+
 		switch(opcode){
-			case 0x0:log+="ADD\n\t RD<-"+hexa(bufferRegistroD);	break;		
-			case 0x1:log+="SUB\n\t RD<-"+hexa(bufferRegistroD);	break;		
-			case 0x2:log+="AND\n\t RD<-"+hexa(bufferRegistroD);	break;		
-			case 0x3:log+="OR\n\t RD<-"+hexa(bufferRegistroD);	break;		
-			case 0x4:log+="LSHIFT\n\t RD<-"+hexa(bufferRegistroD);	break;		
-			case 0x5:log+="RSHIFT\n\t RD<-"+hexa(bufferRegistroD);	break;		
-			case 0x6:log+="Load\n\t DireccionEfectiva<-" +hexa(desplazamiento);		break;		
-			case 0x7:log+="Store\n\t DireccionEfectiva<-"+hexa(desplazamiento);		break;
-			case 0x8:log+="LDA\n\t RD<-"+hexa(bufferRegistroD);	break;		
+			case 0x0:log+="ADD\n\t "+rd+"<-"+bufferRD;	break;		
+			case 0x1:log+="SUB\n\t "+rd+"<-"+bufferRD;	break;		
+			case 0x2:log+="AND\n\t "+rd+"<-"+bufferRD;	break;		
+			case 0x3:log+="OR\n\t  "+rd+"<-"+bufferRD;	break;		
+			case 0x4:log+="LSHIFT\n\t "+rd+"<-"+bufferRD;	break;		
+			case 0x5:log+="RSHIFT\n\t "+rd+"<-"+bufferRD;	break;			
+			case 0x6:log+="Load\n\t DireccionEfectiva<-" +textoDesplazamiento	break;		
+			case 0x7:log+="Store\n\t DireccionEfectiva<-"+textoDesplazamiento	break;
+			case 0x8:log+="LDA\n\t "+rd+"<-"+bufferRD;	break;		
 			case 0x9:log+="JZ\n\t condicion="+condicion;	break;		
 			case 0xA:log+="JG\n\t condicion="+condicion;	break;		
-			case 0xB:log+="CALL\n\t NuevoPC="+hexa(pc);			break;		
-			case 0xC:log+="JUMP\n\t NuevoPC="+hexa(pc);			break;		
-			case 0xD:log+="INC\n\t RD<-"+hexa(bufferRegistroD);	break;		
-			case 0xE:log+="DEC\n\t RD<-"+hexa(bufferRegistroD);	break;
+			case 0xB:log+="CALL\n\t NuevoPC="+textoPC;		break;		
+			case 0xC:log+="JUMP\n\t NuevoPC="+textoPC);		break;		
+			case 0xD:log+="INC\n\t R"+rd+"<-"+bufferRD;	break;		
+			case 0xE:log+="DEC\n\t R"+rd+"<-"+bufferRD;	break;	
 		}
 		ocModel.updateLogs(log);
 	}

@@ -23,6 +23,7 @@ public class OCPresenterServerModule {
 	    presenter.setOCView(view);
 	    setPresenterToModel(presenter);
 	    setIDToModel(id);
+	    resetMemoriaView(id);
 	    return presenter;
 	  }
 	  private OCPresenter getOCPresenter() {
@@ -36,6 +37,10 @@ public class OCPresenterServerModule {
 	  }
 	  private void setIDToModel(String id) {
 		  OCModelServerModule.getInstance().setMongoID(id);
+	  }
+	  private void resetMemoriaView(String id) {
+		  OCViewServer view=getOCView();
+		  view.obtenerAcciones(id);
 	  }
 	  public static MemoriaMongo getMemoriaMongo(){
 	  	return OCModelServerModule.getInstance().getMemoriaMongo();
