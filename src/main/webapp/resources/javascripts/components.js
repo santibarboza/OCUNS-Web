@@ -240,6 +240,12 @@ Vue.component('panelcode-app',{
   }      
 });
 
+//Componente ModalMensaje
+Vue.component('modal-mensaje-app',{
+  template: '#modalTemplate',
+  props: ['modal']  
+});
+
 //Objeto Vue Principal
 var vm=new Vue({
   el:"#panelIde",
@@ -273,6 +279,9 @@ var vm=new Vue({
         logs:{
           value:"Logs:\n"
         }
+      },
+      modal:{
+        mensaje:"Mensaje Default"
       },
       distribucionVentanas:[
         [0,0,0],  //0- no hayVentanas
