@@ -123,3 +123,16 @@ function interpretarData(data){
         }
     });
 }
+function siguientePaso(){
+    $.ajax({
+        method: "GET",
+        url: "/siguientePaso?id="+vm.id, 
+        success: function(data,textStatus){
+         console.log("Respuesta del server en /siguientePaso: \n"+JSON.stringify(data));
+         interpretarData(data);
+        },
+        error:function(textStatus,errorThrown){
+          console.log("Error "+errorThrown+"... "+textStatus);
+        }
+      });
+}

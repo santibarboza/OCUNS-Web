@@ -189,7 +189,26 @@ Vue.component('panelcompilado-app',{
     EventBus.$on('newSize', function (sizes) {
         this.panel.size=sizes[this.index];
     }.bind(this));
-  }   
+  },
+  methods:{
+    ejecutar: function(){
+      //controlar si es ejecucion paso a paso
+      this.iniciarEjecucion();
+    },
+    iniciarEjecucion:function(){
+      $.ajax({
+        method: "GET",
+        url: "/iniciarEjecucion?id="+vm.id, 
+        success: function(data,textStatus){
+         console.log("Respuesta del server en /IniciarEjecucion: \n"+JSON.stringify(data));
+         interpretarData(data);
+        },
+        error:function(textStatus,errorThrown){
+          console.log("Error "+errorThrown+"... "+textStatus);
+        }
+      });
+    }
+  }
 });
 
 //Componente Panel de Codigo
@@ -329,6 +348,7 @@ var vm=new Vue({
     },
     updatePC: function(pc){
         EventBus.$emit('nuevopc', parseInt(pc.pc));
+        this.pc=pc.pc;
     },
     updateIR: function(ir){
         EventBus.$emit('nuevoir', parseInt(ir.ir));
