@@ -93,6 +93,7 @@ public class MemoriaMongoImp implements MemoriaMongo{
 		ArrayList<Integer> memoriaDB= leermemoria();
 		for(int i=0;i<256;i++)
  			memoria.escribirMemoria(i,memoriaDB.get(i));
+ 		memoria.resetUpdateMemoria();
 	}
 	private ArrayList<Integer> leermemoria(){
 		return (ArrayList<Integer>)objeto.get("memoria");
@@ -101,6 +102,7 @@ public class MemoriaMongoImp implements MemoriaMongo{
 		ArrayList<Integer> registrosDB= leerregistros();
 		for(int i=0;i<16;i++)
  			memoria.escribirRegistro(i,registrosDB.get(i));
+ 		memoria.resetUpdateRegistro();
 	}
 	private ArrayList<Integer> leerregistros(){
 		return (ArrayList<Integer>)objeto.get("registros");

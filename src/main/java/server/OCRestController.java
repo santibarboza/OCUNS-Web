@@ -72,7 +72,6 @@ public class OCRestController {
     
     private void reiniciarMemoria(){
         memoriaMongo.reiniciarMemoria();
-        obtenerAccionesRealizadas();
     }
     private void iniciarAplicacion(String id){
         idUsuario=obtenerID(id);

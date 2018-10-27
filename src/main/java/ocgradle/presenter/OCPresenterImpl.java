@@ -68,7 +68,7 @@ public class OCPresenterImpl implements OCPresenter {
 			if(ocModel.compilaElArchivo(archivoActual, direccionInicio)){
 				ocView.habilitarOpcionesdeEjecucion();
 				ocView.updateCodigoCompilado(ocModel.obtenerCodigoCompilado());
-				ocView.mostrarMensaje("El Archivo se compilo correctamente");
+				mostrarMensaje("El Archivo se compilo correctamente");
 			}
 			
 		}
