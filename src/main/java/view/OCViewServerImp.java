@@ -40,6 +40,7 @@ public class OCViewServerImp implements OCViewServer{
 		accionesActuales.add(accionFactory.crearAccionCambio("Update_Memoria",memoria));	
 	}
 	public void updatePCView(String pc){
+		//agregar ir
 		accionesActuales.add(accionFactory.crearAccionDefault("Set_PC",pc));		
 	}
 	public void updateLogs(String log){

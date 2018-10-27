@@ -256,13 +256,13 @@ public class EjecucionImpl implements Ejecucion{
 			case 0x3:log+="OR\n\t  "+rd+"<-"+bufferRD;	break;		
 			case 0x4:log+="LSHIFT\n\t "+rd+"<-"+bufferRD;	break;		
 			case 0x5:log+="RSHIFT\n\t "+rd+"<-"+bufferRD;	break;			
-			case 0x6:log+="Load\n\t DireccionEfectiva<-" +textoDesplazamiento	break;		
-			case 0x7:log+="Store\n\t DireccionEfectiva<-"+textoDesplazamiento	break;
+			case 0x6:log+="Load\n\t DireccionEfectiva<-" +textoDesplazamiento;	break;		
+			case 0x7:log+="Store\n\t DireccionEfectiva<-"+textoDesplazamiento;	break;
 			case 0x8:log+="LDA\n\t "+rd+"<-"+bufferRD;	break;		
 			case 0x9:log+="JZ\n\t condicion="+condicion;	break;		
 			case 0xA:log+="JG\n\t condicion="+condicion;	break;		
 			case 0xB:log+="CALL\n\t NuevoPC="+textoPC;		break;		
-			case 0xC:log+="JUMP\n\t NuevoPC="+textoPC);		break;		
+			case 0xC:log+="JUMP\n\t NuevoPC="+textoPC;		break;		
 			case 0xD:log+="INC\n\t R"+rd+"<-"+bufferRD;	break;		
 			case 0xE:log+="DEC\n\t R"+rd+"<-"+bufferRD;	break;	
 		}
