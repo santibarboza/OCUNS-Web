@@ -97,7 +97,7 @@ function interpretarData(data){
                 vm.updateRegistros(accion.parametro);
                 break;
             case "Mostrar_Mensaje":
-                console.log("Mostrar Mensaje:\n"+accion.parametro);
+                vm.mostrarMensaje(accion.parametro);
                 break;
             case "set_ID":
                 vm.id=accion.parametro;

@@ -346,6 +346,10 @@ var vm=new Vue({
     agregarLog:function(logNuevo){
       this.panelSimulacion.logs.value+=logNuevo+"\n";
     },
+    mostrarMensaje:function(mensaje){
+      this.modal.mensaje=mensaje;
+      $("#mostrarmodal").modal("show");
+    },
     getPanel:function(i){
       switch(i){
         case 0:
