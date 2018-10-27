@@ -181,7 +181,8 @@
                                 <option>De a 1 Instrucción</option>
                             </select>   
                             <button type="button" class="btn btn-default col-md-4" 
-                                :disabled="!panel.habilitaEjecucion" id="ejecutar">
+                                :disabled="!panel.habilitaEjecucion" 
+                                @click="ejecutar" id="ejecutar">
                                 Ejecutar
                             </button>
                         </div>
