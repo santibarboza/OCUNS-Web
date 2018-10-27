@@ -328,10 +328,10 @@ var vm=new Vue({
       this.resetMemoria();
     },
     updatePC: function(pc){
-        EventBus.$emit('nuevopc', pc.pc);
+        EventBus.$emit('nuevopc', parseInt(pc.pc));
     },
     updateIR: function(ir){
-        EventBus.$emit('nuevoir', ir.ir);
+        EventBus.$emit('nuevoir', parseInt(ir.ir));
     },
     updateSizePaneles: function(index,ver){
         this.getPanel(index).ver=ver;
