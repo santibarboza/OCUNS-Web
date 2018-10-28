@@ -315,8 +315,8 @@ var vm=new Vue({
         [4,3,5]   //7- Los 3 Paneles
       ],
       id:"noID",
-      pc:0,
-      ir:0,
+      pc:panelCode.direccionInicio,
+      ir:panelCode.direccionInicio,
   },
   methods:{
       updateRegistros: function(cambios){
@@ -346,6 +346,8 @@ var vm=new Vue({
     resetAll: function(){
       this.resetRegistros();
       this.resetMemoria();
+      this.pc=this.panelCode.direccionInicio;
+      this.ir=this/panelCode.direccionInicio;
     },
     updatePC: function(pc){
         EventBus.$emit('nuevopc', parseInt(pc.pc));
