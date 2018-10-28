@@ -112,8 +112,8 @@ Vue.component('panelmemoria-app',{
   template: '#memoriaPanelTemplate',
   props: ['memorias'],
   computed:{
-    getLogs: function(){
-        return this.logs;
+    getMemoria: function(){
+        return this.memorias;
       }
   }  
 });
@@ -304,10 +304,10 @@ var vm=new Vue({
   created:function () {
     var i;
     for (i = 0; i < 16; i++) {
-      this.panelSimulacion.registros.push({contenido:"00"});
+      this.panelSimulacion.registros.value.push({contenido:"00"});
     } 
     for (i = 0; i < 256; i++) {
-      this.panelSimulacion.memorias.push({contenido:"00"});
+      this.panelSimulacion.memorias.value.push({contenido:"00"});
     }
     this.pc=this.panelCode.direccionInicio;
     this.ir=this.panelCode.direccionInicio;
@@ -328,8 +328,14 @@ var vm=new Vue({
       panelSimulacion:{
         size:5,
         ver:true,
-        registros:[],
-        memorias:[],
+        registros:{
+          value:[],
+          desplegado:false
+          },
+        memorias:{
+          value:[],
+          desplegado:false
+          },
         logs:{
           value:"Logs:\n",
           desplegado:false
@@ -358,7 +364,7 @@ var vm=new Vue({
   },
   methods:{
       updateRegistros: function(cambios){
-        var registros=this.panelSimulacion.registros;
+        var registros=this.panelSimulacion.registros.value
         var keys=[];
         $.each(cambios, function( index, cambio ) {
             registros[cambio.key].contenido=cambio.value;
@@ -367,7 +373,7 @@ var vm=new Vue({
         EventBus.$emit('ultimoCambioRegistro', keys);
     },
     updateMemoria: function(cambios){
-        var memorias=this.panelSimulacion.memorias;
+        var memorias=this.panelSimulacion.memorias.value;
         var keys=[];
         $.each(cambios, function( index, cambio ) {
             memorias[cambio.key].contenido=cambio.value;

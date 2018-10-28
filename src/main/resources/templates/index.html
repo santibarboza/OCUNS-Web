@@ -95,10 +95,7 @@
     <script type="text/x-template" id="headingTemplate">
         <div class="panel-heading">
             <h3 class="panel-title col-md-11">{{getTitulo}}</h3>
-            <button type="button" class="btn btn-default col-md-1 closebutton" 
-            data-toggle="collapse" :data-target="getTarget" >
-                <span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span>
-            </button>
+            <botonDesplegar targets="targets" :desplegado="desplegado">
         </div>
     </script>
     <!--Registro-->
@@ -237,11 +234,12 @@
     <!--Panel de Registros-->
     <script type="text/x-template" id="registroPanelTemplate">
         <div class="panel panel-default" id="panelRegistros">
-            <panelheading targets="#bodyRegistro" titulo="Registros del Procesador"></panelheading>
+            <panelheading targets="#bodyRegistro" titulo="Registros del Procesador"
+            :desplegado="registros.desplegado"></panelheading>
             <div class="panel-body collapse in" id="bodyRegistro">
-                <registro-table-app :registros="registros" :inicio="0" :fin="8" id="row1"> 
+                <registro-table-app :registros="registros.value" :inicio="0" :fin="8" id="row1"> 
                 </registro-table-app>
-                <registro-table-app :registros="registros" :inicio="8" :fin="16" id="row1"> 
+                <registro-table-app :registros="registros.value" :inicio="8" :fin="16" id="row1"> 
                 </registro-table-app>
             </div>
         </div>
@@ -289,9 +287,10 @@
     |<!--Panel de Memoria -->
     <script type="text/x-template" id="memoriaPanelTemplate">
         <div class="panel panel-default" id="panelMemoria">
-            <panelheading targets="#bodyMemoria" titulo="Memoria del Sistema"></panelheading>
+            <panelheading targets="#bodyMemoria" titulo="Memoria del Sistema"
+            :desplegado="memorias.desplegado"></panelheading>
             <div class="panel-body collapse" id="bodyMemoria">
-                <memoria-table-app :memorias="memorias" :cantxfilas="16" id="tablaMemoria"> 
+                <memoria-table-app :memorias="memorias.value" :cantxfilas="16" id="tablaMemoria"> 
                 </memoria-table-app>
             </div>
         </div>
