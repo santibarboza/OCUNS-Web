@@ -274,6 +274,8 @@ var vm=new Vue({
     for (i = 0; i < 256; i++) {
       this.panelSimulacion.memorias.push({contenido:"00"});
     }
+    this.pc=this.panelCode.direccionInicio;
+    this.ir=this.panelCode.direccionInicio;
   },
   data:{
       panelCode:{
@@ -315,8 +317,8 @@ var vm=new Vue({
         [4,3,5]   //7- Los 3 Paneles
       ],
       id:"noID",
-      pc:panelCode.direccionInicio,
-      ir:panelCode.direccionInicio,
+      pc:0,
+      ir:0,
   },
   methods:{
       updateRegistros: function(cambios){
@@ -347,7 +349,7 @@ var vm=new Vue({
       this.resetRegistros();
       this.resetMemoria();
       this.pc=this.panelCode.direccionInicio;
-      this.ir=this/panelCode.direccionInicio;
+      this.ir=this.panelCode.direccionInicio;
     },
     updatePC: function(pc){
         EventBus.$emit('nuevopc', parseInt(pc.pc));
