@@ -144,6 +144,7 @@ function getSiguientePaso(){
       });
 }
 function detener(){
+    vm.resetAll();
     $.ajax({
         method: "GET",
         url: "/detenerEjecucion?id="+vm.id, 
@@ -226,3 +227,32 @@ function generarTexto(texto) {
         type: 'text/plain'
     });
 };
+function ejecutar(){
+    $.ajax({
+        method: "GET",
+        url: "/iniciarEjecucion?id="+vm.id, 
+        success: function(data,textStatus){
+         console.log("Respuesta del server en /IniciarEjecucion: \n"+JSON.stringify(data));
+         interpretarData(data);
+        seguirEjecutando();
+        },
+        error:function(textStatus,errorThrown){
+          console.log("Error "+errorThrown+"... "+textStatus);
+        }
+      });
+}
+function seguirEjecutando(){
+    $.ajax({
+        method: "GET",
+        url: "/siguientePaso?id="+vm.id, 
+        success: function(data,textStatus){
+         console.log("Respuesta del server en /siguientePaso: \n"+JSON.stringify(data));
+         interpretarData(data);
+         if(vm.botoneraEjecucion.ejecutando)
+            seguirEjecutando();
+        },
+        error:function(textStatus,errorThrown){
+          console.log("Error "+errorThrown+"... "+textStatus);
+        }
+      });
+}
