@@ -121,6 +121,9 @@ function interpretarData(data){
                 vm.updateIR({ir:vm.pc});
                 vm.updatePC({pc:accion.parametro});
                 break;
+            case "LoadFF":
+                leerUsuario(accion.parametro);
+                break;
             default:
                 console.log("default");
         }
@@ -177,4 +180,18 @@ function compilarCodigoFuente(value,direccionInicio){
       console.log("Se envio un POST a /compilar con");
       console.log("Codigo Fuente: \n"+value);
       console.log("Direccion de Inicio: "+direccionInicio);
+}
+function leerUsuario(texto){
+    var usuario=prompt(texto);
+    $.ajax({
+        method: "GET",
+        url: "/setLectura?id="+vm.id"&leer="+usuario, 
+        success: function(data,textStatus){
+         console.log("Respuesta del server en /setLectura: \n"+JSON.stringify(data));
+         interpretarData(data);
+        },
+        error:function(textStatus,errorThrown){
+          console.log("Error "+errorThrown+"... "+textStatus);
+        }
+      });
 }

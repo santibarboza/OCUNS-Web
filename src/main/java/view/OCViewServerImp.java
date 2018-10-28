@@ -13,6 +13,7 @@ public class OCViewServerImp implements OCViewServer{
 	private OCPresenter ocPresenter;
 	private AccionFactory accionFactory;
 	protected List <Accion> accionesActuales;
+	protected List <Accion> accionPedidoLectura;
 	protected String contenidoActual;
 	protected boolean pudoLeer;
 	protected String valorLeido;
@@ -22,7 +23,8 @@ public class OCViewServerImp implements OCViewServer{
 	    this.accionFactory= accionFactory;
 	    this.pudoLeer=false;
 	    this.valorLeido="";
-		accionesActuales= new ArrayList<Accion>();		
+		accionesActuales= new ArrayList<Accion>();
+		accionPedidoLectura=null;		
 	}
 	public void updateTextoTutorial(String texto){
 		accionesActuales.add(accionFactory.crearAccionDefault("Mostrar_Mensaje",texto));
@@ -59,23 +61,27 @@ public class OCViewServerImp implements OCViewServer{
 		accionesActuales.add(accionFactory.crearAccionDefault("Deshabilitar_Opciones_PAP",""));
 	}
 	public List<Accion> obtenerAcciones(String id){
+		if(accionPedidoLectura!=null)
+			return accionPedidoLectura;
 		List<Accion> retornar=accionesActuales;
 		retornar.add(accionFactory.crearAccionDefault("set_ID",id));
 		accionesActuales= new ArrayList<Accion>();
 		return retornar;	
 	}
 	public String pedirDialogo(String pedido){
-		String retorno="Invalido";
-		if(pudoLeer)
-			retorno= valorLeido;
-		else
-			accionesActuales.add(accionFactory.crearAccionDefault("LoadFF",pedido));
+		String retorno=valorLeido;
+		if(!pudoLeer)
+			retorno= "Invalido";
+			accionPedidoLectura= new ArrayList<Accion>();	
+			accionPedidoLectura.add(accionFactory.crearAccionDefault("LoadFF",pedido));	
+		}
 		pudoLeer=false;
 		return retorno;
 	}
 	public void setLectura(String txt){
 		pudoLeer=true;
 		valorLeido=txt;
+		accionPedidoLectura=null;
 	}
 
 	public void updateNombreArchivo(String fileName){}
