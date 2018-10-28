@@ -141,20 +141,25 @@ Vue.component('panellogs-app',{
 Vue.component('botonDesplegar',{
   template: '#botonDesplegarTemplate',
   props: ['targets', 'desplegado'],
+  data:function(){
+      return {
+          desp:this.desplegado;
+      }
+  },
   computed:{
       getTarget: function(){
         return this.targets;
       },
       getIcono: function(){
         return{
-          'glyphicon-collapse-up':this.desplegado,
-          'glyphicon-collapse-down':!this.desplegado,
+          'glyphicon-collapse-up':this.desp,
+          'glyphicon-collapse-down':!this.desp,
         };
       }
   }, 
   methods:{
     toogle:function(){
-      this.desplegado=!this.desplegado;
+      this.desp=!this.desp;
     } 
   }
 });
