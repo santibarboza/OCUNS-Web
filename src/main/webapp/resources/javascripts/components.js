@@ -137,8 +137,8 @@ Vue.component('panellogs-app',{
   }
 });
 
-//Componente Heading de Panel
-Vue.component('panelheading',{
+//Componente Boton de Desplegar
+Vue.component('botonDesplegar',{
   template: '#botonDesplegarTemplate',
   props: ['targets', 'desplegado'],
   computed:{
@@ -158,9 +158,8 @@ Vue.component('panelheading',{
     } 
   }
 });
-
-//Componente Boton de Desplegar
-Vue.component('botonDesplegar',{
+//Componente Heading de Panel
+Vue.component('panelheading',{
   template: '#headingTemplate',
   props: ['targets', 'titulo'],
   computed:{
