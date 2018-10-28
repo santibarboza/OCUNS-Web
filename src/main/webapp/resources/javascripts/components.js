@@ -235,26 +235,7 @@ Vue.component('panelcode-app',{
   },
   methods:{
     Compilar:function(){
-      var dataBody={"codigoFuente":this.panel.value, "direccionInicio": this.panel.direccionInicio};
-      $.ajax({
-        method: "POST",
-        url: "/compilar?id="+vm.id, 
-        data: JSON.stringify(dataBody),  
-        headers:{
-          "Content-Type": "application/json",
-        },
-        success: function(data,textStatus){
-         console.log("Respuesta del server en /Compilar: \n"+JSON.stringify(data));
-         vm.resetAll();
-         interpretarData(data);
-        },
-        error:function(textStatus,errorThrown){
-          console.log("Error "+errorThrown+"... "+textStatus);
-        }
-      });
-      console.log("Se envio un POST a /compilar con");
-      console.log("Codigo Fuente: \n"+this.panel.value);
-      console.log("Direccion de Inicio: "+this.panel.direccionInicio);
+      compilarCodigoFuente();
     }
   }      
 });
