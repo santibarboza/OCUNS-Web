@@ -147,14 +147,14 @@ Vue.component('botonDesplegar',{
       },
       getIcono: function(){
         return{
-          'glyphicon-collapse-up':desplegado,
-          'glyphicon-collapse-down':!desplegado,
+          'glyphicon-collapse-up':this.desplegado,
+          'glyphicon-collapse-down':!this.desplegado,
         };
       }
   }, 
   methods:{
     toogle:function(){
-      desplegado=!desplegado;
+      this.desplegado=!this.desplegado;
     } 
   }
 });
