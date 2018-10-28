@@ -132,7 +132,7 @@ Vue.component('panellogs-app',{
       descargarArchivo(generarTexto(this.logs.value), 'logs.txt');
     },
     borrarLogs:function(){
-      logs.value="Logs:\n";
+      this.logs.value="Logs:\n";
     }   
   }
 });
