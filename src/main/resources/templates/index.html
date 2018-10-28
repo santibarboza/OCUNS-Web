@@ -133,7 +133,7 @@
                                 <option>De a 1 Instrucción</option>
                                 <option>Todo el Código</option>
                             </select>   
-                            <button type="button" class="btn btn-default col-md-4" 
+                            <button type="button" class="btn btn-default col-md-4" title="Ejecutar" 
                                 :disabled="!panel.habilitaEjecucion" 
                                 @click="ejecutar" id="ejecutar">
                                 Ejecutar
@@ -170,11 +170,11 @@
                         </textarea>
                         <div id="barraCompilar">
                           <h5 class="col-md-6" id="labeldirinicio">Direccion de Inicio:</h5>
-                          <textarea id="dirInicio" class="col-md-2" rows="1" cols="2" 
+                          <textarea id="dirInicio" class="col-md-2" rows="1" cols="2" title="Dirección de Inicio" 
                           maxlength="2" v-model="panel.direccionInicio">
                           </textarea>
                           <button type="button" class="btn btn-default col-md-4" 
-                          id="compilar" @click="Compilar">
+                          id="compilar" title="Compilar Codigo Fuente" @click="Compilar">
                             Compilar
                           </button>
                         </div> 
@@ -242,8 +242,9 @@
         </div>
     </script>
 
+    <!--Boton Desplegar -->
     <script type="text/x-template" id="botonDesplegarTemplate">
-        <button type="button" class="btn btn-default col-md-1 closebutton" 
+        <button type="button" :title="getTitle" class="btn btn-default col-md-1 closebutton" 
         data-toggle="collapse" :data-target="getTarget" @click="toogle">
             <span class="glyphicon" :class="getIcono" aria-hidden="true"></span>
         </button>
@@ -298,7 +299,7 @@
     <!--Botonera Ventanas-->
     <script type="text/x-template" id="botoneraVentanasTemplate">
         <div id="botoneraEjecucion" class="btn-group col-xs-12 col-md-7">
-            <a href="/" class="btn btn-default col-md-6" id="volver">
+            <a href="/" class="btn btn-default col-md-6" id="volver" title="Volver">
                 Volver
             </a>
             <select id="ventanas" class="col-md-6 selectpicker" 
@@ -319,7 +320,7 @@
     <script src="resources/javascripts/funciones.js" type="text/javascript"></script>
     <script src="resources/javascripts/components.js" type="text/javascript"></script>
     </body>
-    
+
 </html>
 
 

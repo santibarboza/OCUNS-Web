@@ -147,6 +147,12 @@ Vue.component('botonDesplegar',{
       };
   },
   computed:{
+      getTitle: function(){
+        if(this.desp)
+          return "Colapsar Panel";
+        else
+          return "Desplegar Panel";
+      },
       getTarget: function(){
         return this.targets;
       },
