@@ -126,7 +126,12 @@ Vue.component('panellogs-app',{
     getLogs: function(){
         return this.logs;
       }
-  }  
+  },
+  methods:{
+    descargarLogs:function(){
+      descargarArchivo(generarTexto(this.logs.value), 'logs.txt');
+    }  
+  }
 });
 
 //Componente Heading de Panel
@@ -191,6 +196,9 @@ Vue.component('panelcompilado-app',{
     }.bind(this));
   },
   methods:{
+    descargarCompilado:function(){
+      descargarArchivo(generarTexto(this.panel.value), 'compilado.txt');
+    },
     ejecutar: function(){
       //controlar si es ejecucion paso a paso
       this.iniciarEjecucion();
@@ -236,6 +244,9 @@ Vue.component('panelcode-app',{
   methods:{
     Compilar:function(){
       compilarCodigoFuente(this.panel.value,this.panel.direccionInicio);
+    },
+    descargarFuente:function(){
+      descargarArchivo(generarTexto(this.panel.value), 'archivo.ocuns');
     }
   }      
 });

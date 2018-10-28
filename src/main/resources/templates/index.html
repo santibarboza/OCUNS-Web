@@ -96,7 +96,9 @@
         <div class="panel-heading">
             <h3 class="panel-title col-md-11">{{getTitulo}}</h3>
             <button type="button" class="btn btn-default col-md-1 closebutton" 
-            data-toggle="collapse" :data-target="getTarget" >-</button>
+            data-toggle="collapse" :data-target="getTarget" >
+                <span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span>
+            </button>
         </div>
     </script>
     <!--Registro-->
@@ -152,7 +154,14 @@
         <div id="contenedorCompilado" class="col-xs-12" :class="getBigSize">
             <div class="panel panel-default" id="panelCompilado">
                <div class="panel-heading">
-                   <h3 class="panel-title">Codigo Compilado</h3>
+                    <h3 class="panel-title col-md-11">Codigo Compilado</h3> 
+                    <button title="Descargar Codigo Fuente" class="btn btn-default col-md-1 menuB"
+                    @click="descargarCompilado">
+                        <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                    </button>
+                </div>
+               <div class="panel-heading">
+                   <h3 class="panel-title"></h3>
                 </div>
                 <div class="panel-body">
                    <form role="form">
@@ -184,9 +193,13 @@
     <script type="text/x-template" id="codeTemplate">
         <div id="contenedorCode" class="col-xs-12" :class="getBigSize">
             <div class="panel panel-default" id="panelCode">
-               <div class="panel-heading">
-                   <h3 class="panel-title">Codigo Fuente</h3>
-               </div>
+                <div class="panel-heading">
+                    <h3 class="panel-title col-md-11">Codigo Fuente</h3> 
+                    <button title="Descargar Codigo Fuente" class="btn btn-default col-md-1 menuB"
+                    @click="descargarFuente">
+                        <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                    </button>
+                </div>
                 <div class="panel-body">
                     <form role="form">
                         <textarea id="sourceCode"
@@ -239,8 +252,18 @@
 
     |<!--Panel de Logs-->
     <script type="text/x-template" id="logsTemplate">
-        <div class="panel panel-default" id="panelLogs">
-            <panelheading targets="#bodyLog" titulo="Logs del Sistema"></panelheading>
+            <div class="panel panel-default" id="panelLogs">
+                <div class="panel-heading">
+                <h3 class="panel-title col-md-10">Logs del Sistema</h3>
+                <button title="Descargar Codigo Fuente" class="btn btn-default col-md-1 menuB"
+                    @click="descargarLogs">
+                        <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                    </button>
+                <button type="button" class="btn btn-default col-md-1 closebutton" 
+                data-toggle="collapse" :data-target="#bodyLog" >
+                    <span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span>
+                </button>
+            </div>
             <div class="panel-body collapse" id="bodyLog">
                 <table class="table table-bordered" id="tablaMemoria">
                     <tbody>

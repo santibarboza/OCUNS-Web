@@ -195,3 +195,34 @@ function leerUsuario(texto){
         }
       });
 }
+function guardarCodigoFuente(){
+     descargarArchivo(generarTexto(vm.panelCode.value), 'archivo.ocuns');
+}
+function guardarCodigoCompilado){
+     descargarArchivo(generarTexto(vm.panelCompilado.value), 'compilado.txt');
+}
+function guardarLogs(){
+     descargarArchivo(generarTexto(vm.panelSimulacion.logs.value), 'logs.txt');
+}
+function descargarArchivo(contenidoEnBlob, nombreArchivo) {
+    var reader = new FileReader();
+    reader.onload = function (event) {
+        var save = document.createElement('a');
+        save.href = event.target.result;
+        save.target = '_blank';
+        save.download = nombreArchivo || 'archivo.dat';
+        var clicEvent = new MouseEvent('click', {
+            'view': window,
+                'bubbles': true,
+                'cancelable': true
+        });
+        save.dispatchEvent(clicEvent);
+        (window.URL || window.webkitURL).revokeObjectURL(save.href);
+    };
+    reader.readAsDataURL(contenidoEnBlob);
+};
+function generarTexto(texto) { 
+    return new Blob([texto], {
+        type: 'text/plain'
+    });
+};
