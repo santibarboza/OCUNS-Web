@@ -144,7 +144,6 @@ function getSiguientePaso(){
       });
 }
 function detener(){
-    vm.resetAll();
     $.ajax({
         method: "GET",
         url: "/detenerEjecucion?id="+vm.id, 
