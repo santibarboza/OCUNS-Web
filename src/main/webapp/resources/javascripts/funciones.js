@@ -1,4 +1,5 @@
 
+var salto="---------------------------------------------";
 
 function ocultarCode(){
     if(vm.panelCode.ver){
@@ -107,9 +108,11 @@ function interpretarData(data){
                 break;
             case "Habilitar_Opciones_PAP":
                 vm.habilita_EjecucionPAP(true);
+                vm.setearEjecutando(true);
                 break;
             case "Deshabilitar_Opciones_PAP":
                 vm.habilita_EjecucionPAP(false);
+                vm.setearEjecutando(false);
                 break;
             case "Update_Logs":
                 vm.agregarLog(accion.parametro);
@@ -122,6 +125,7 @@ function interpretarData(data){
                 console.log("default");
         }
     });
+    vm.agregarLog(salto);
 }
 function getSiguientePaso(){
     $.ajax({
@@ -143,9 +147,12 @@ function detener(){
         success: function(data,textStatus){
          console.log("Respuesta del server en /detenerEjecucion: \n"+JSON.stringify(data));
          interpretarData(data);
+         vm.habilita_EjecucionPAP(false);
+         vm.setearEjecutando(false);
         },
         error:function(textStatus,errorThrown){
           console.log("Error "+errorThrown+"... "+textStatus);
         }
       });
+
 }

@@ -1,6 +1,5 @@
 var EventBus = new Vue;
 var idUsuario="IdDefault";
-var salto="\n---------------------------------------------\n";
 
 //Componente de Registro
 Vue.component('registro-app',{
@@ -277,6 +276,7 @@ Vue.component('botonera-ejecucion-app',{
 Vue.component('botonera-ventanas-app',{
   template: '#botoneraVentanasTemplate'
 });
+lda R2,03
 //Componente ModalMensaje
 Vue.component('modal-mensaje-app',{
   template: '#modalTemplate',
@@ -384,8 +384,11 @@ var vm=new Vue({
     habilita_EjecucionPAP:function(cond){
       this.botoneraEjecucion.habilita_PAP=cond;
     },
+    setearEjecutando:function(cond){
+      this.botoneraEjecucion.ejecutando=cond;
+    },
     agregarLog:function(logNuevo){
-      this.panelSimulacion.logs.value+=logNuevo+salto;
+      this.panelSimulacion.logs.value+=logNuevo+'\n';
     },
     mostrarMensaje:function(mensaje){
       this.modal.mensaje=mensaje;
