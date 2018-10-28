@@ -335,7 +335,7 @@ var vm=new Vue({
         ver:true,
         registros:{
           value:[],
-          desplegado:false
+          desplegado:true
           },
         memorias:{
           value:[],
