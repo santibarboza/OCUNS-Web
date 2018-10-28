@@ -1,5 +1,6 @@
 var EventBus = new Vue;
 var idUsuario="IdDefault";
+var salto="\n---------------------------------------------\n";
 
 //Componente de Registro
 Vue.component('registro-app',{
@@ -259,6 +260,23 @@ Vue.component('panelcode-app',{
   }      
 });
 
+//Componente BotoneraEjecucion (Siguiente, Detener)
+Vue.component('botonera-ejecucion-app',{
+  template: '#botoneraEjecuccionTemplate',
+  props: ['botonera'] ,
+  methods:{
+    obtenerSiguientePaso:function(){
+      getSiguientePaso();
+    },
+    detenerEjecucion:function(){
+      detener();
+    }    
+  }
+});
+//Componente Ventanas
+Vue.component('botonera-ventanas-app',{
+  template: '#botoneraVentanasTemplate'
+});
 //Componente ModalMensaje
 Vue.component('modal-mensaje-app',{
   template: '#modalTemplate',
@@ -302,6 +320,10 @@ var vm=new Vue({
       modal:{
         mensaje:"Mensaje Default"
       },
+      botoneraEjecucion:{
+        ejecutando:false,
+        habilita_PAP:false
+      },
       distribucionVentanas:[
         [0,0,0],  //0- no hayVentanas
         [0,0,12], //1- Panel Simulacion
@@ -315,7 +337,6 @@ var vm=new Vue({
       id:"noID",
       pc:0,
       ir:0,
-      habilita_PAP:false
   },
   methods:{
       updateRegistros: function(cambios){
@@ -361,10 +382,10 @@ var vm=new Vue({
         this.panelCompilado.habilitaEjecucion=true;
     },
     habilita_EjecucionPAP:function(cond){
-      this.habilita_PAP=cond;
+      this.botoneraEjecucion.habilita_PAP=cond;
     },
     agregarLog:function(logNuevo){
-      this.panelSimulacion.logs.value+=logNuevo+"\n";
+      this.panelSimulacion.logs.value+=logNuevo+salto;
     },
     mostrarMensaje:function(mensaje){
       this.modal.mensaje=mensaje;

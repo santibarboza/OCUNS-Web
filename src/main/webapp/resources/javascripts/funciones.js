@@ -123,12 +123,25 @@ function interpretarData(data){
         }
     });
 }
-function siguientePaso(){
+function getSiguientePaso(){
     $.ajax({
         method: "GET",
         url: "/siguientePaso?id="+vm.id, 
         success: function(data,textStatus){
          console.log("Respuesta del server en /siguientePaso: \n"+JSON.stringify(data));
+         interpretarData(data);
+        },
+        error:function(textStatus,errorThrown){
+          console.log("Error "+errorThrown+"... "+textStatus);
+        }
+      });
+}
+function detener(){
+    $.ajax({
+        method: "GET",
+        url: "/detenerEjecucion?id="+vm.id, 
+        success: function(data,textStatus){
+         console.log("Respuesta del server en /detenerEjecucion: \n"+JSON.stringify(data));
          interpretarData(data);
         },
         error:function(textStatus,errorThrown){

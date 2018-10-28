@@ -40,28 +40,14 @@
     <div class="container-fluid" id="panelIde">
 		<div class= "col-md-12">
             <modal-mensaje-app :modal="modal"></modal-mensaje-app>
-    	    <div id="botoneraEjecucion" class="btn-group col-xs-12 col-md-7">
-                <button type="button" class="btn btn-default col-md-6" id="volver">Volver</button>
-                <select id="ventanas" class="col-md-6 selectpicker" 
-                    title="Ventanas Habilitadas" data-selected-text-format="count"
-                    multiple="multiple">
-                    <option value="0">Codigo Fuente</option>
-                    <option value="1">Codigo Compilado</option>
-                    <option value="2">Simulacion</option>
-                </select>
-            </div>
-    	    <div id="botoneraEjecucion1" class="btn-group col-md-5">
-              <button type="button" class="btn btn-default col-md-6" :disabled="!habilita_PAP" id="siguientePaso">
-                Siguiente Paso
-              </button>
-		      <button type="button" class="btn btn-default col-md-6" :disabled="!habilita_PAP"id="detener">
-                Detener Ejecución
-              </button>
-            </div>
+    	    <botonera-ejecucion-app :botonera="botoneraEjecucion"></botonera-ejecucion-app>
+            <botonera-ventanas-app></botonera-ventanas-app>
         </div>
- 	    <panelcode-app :panel="panelCode" :index="0" v-if="panelCode.ver"></panelcode-app>
-        <panelcompilado-app :panel="panelCompilado" :index="1" v-if="panelCompilado.ver"></panelcompilado-app>
-        <panelsimulacion-app :panel="panelSimulacion" :index="2" v-if="panelSimulacion.ver"></panelsimulacion-app>
+        <div class= "col-md-12">
+     	    <panelcode-app :panel="panelCode" :index="0" v-if="panelCode.ver"></panelcode-app>
+            <panelcompilado-app :panel="panelCompilado" :index="1" v-if="panelCompilado.ver"></panelcompilado-app>
+            <panelsimulacion-app :panel="panelSimulacion" :index="2" v-if="panelSimulacion.ver"></panelsimulacion-app>
+        </div>
 	</div>
         
     <footer class="link-footer" id="link-footer">
@@ -304,6 +290,34 @@
         </div>
     </script>
     
+    <!--Botonera Ejecucion-->
+    <script type="text/x-template" id="botoneraEjecuccionTemplate">
+        <div id="botoneraEjecucion1" class="btn-group col-md-5">
+          <button type="button" class="btn btn-default col-md-6" :disabled="!botonera.habilita_PAP" 
+           @click="obtenerSiguientePaso" id="siguientePaso">
+            Siguiente Paso
+          </button>
+          <button type="button" class="btn btn-default col-md-6" :disabled="!botonera.ejecutando"
+          @click="detenerEjecucion" id="detener">
+            Detener Ejecución
+          </button>
+        </div>
+    </script>
+
+    <!--Botonera Ventanas-->
+    <script type="text/x-template" id="botoneraVentanasTemplate">
+        <div id="botoneraEjecucion" class="btn-group col-xs-12 col-md-7">
+            <button type="button" class="btn btn-default col-md-6" id="volver">Volver</button>
+            <select id="ventanas" class="col-md-6 selectpicker" 
+                title="Ventanas Habilitadas" data-selected-text-format="count"
+                multiple="multiple">
+                <option value="0">Codigo Fuente</option>
+                <option value="1">Codigo Compilado</option>
+                <option value="2">Simulacion</option>
+            </select>
+        </div>
+    </script>
+
 
     <!--Funciones-->
     
