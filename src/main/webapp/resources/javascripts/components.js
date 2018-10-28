@@ -143,8 +143,8 @@ Vue.component('botonDesplegar',{
   props: ['targets', 'desplegado'],
   data:function(){
       return {
-          desp:this.desplegado;
-      }
+          desp:this.desplegado
+      };
   },
   computed:{
       getTarget: function(){
