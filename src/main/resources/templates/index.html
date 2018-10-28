@@ -30,7 +30,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="">Inicio</a></li>
+            <li><a href="/">Inicio</a></li>
             <li><a href="/help">Ayuda</a></li>
             <li><a href="/about">Sobre Mi</a></li>
           </ul>
@@ -48,43 +48,7 @@
             <panelcompilado-app :panel="panelCompilado" :index="1" v-if="panelCompilado.ver"></panelcompilado-app>
             <panelsimulacion-app :panel="panelSimulacion" :index="2" v-if="panelSimulacion.ver"></panelsimulacion-app>
         </div>
-	</div>
-        
-    <footer class="link-footer" id="link-footer">
-        <div class="width-wrapper" id="link-footer-width-wrapper">
-            <div class=".col-md-8" id="linksFooter">
-                <nav class="link-footer-links link-footer-codepen-links" id="link-footer-codepen-links">
-                    <strong>OCuns</strong>
-                    <a href="/about/">About</a>
-                    <a href="/support/">Support</a>
-                    <a href="/">Section</a>
-                </nav>
-                <nav class="link-footer-links link-footer-community-links" id="link-footer-community-links">
-                  <strong>Community</strong>
-                  <a href="/jobs/">Jobs</a>
-                  <a href="https://blog.codepen.io/meetups/">Meetups</a>
-                  <a href="/pro/teams/">Teams</a>
-                  <a href="/patterns/">Patterns</a>
-                  <a href="https://blog.codepen.io/legal/code-conduct/">Code of Conduct</a>
-                </nav>
-                <nav class="link-footer-links link-footer-social-links" id="link-footer-social-links">
-                    <strong>Social</strong>}
-                    <a href="https://twitter.com/">Twitter</a>
-                    <a href="https://www.facebook.com/CEComUNS/">Facebook</a>
-                    <a href="https://www.instagram.com/CEComUNS/">Instagram</a>
-                </nav>
-            </div>
-            <div class="copyright .col-md-4" id="link-footer-copyright">
-                <h1 class="logo header-chunk">
-                    <a href="https://www.facebook.com/CEComUNS/" class="small-screen-logo">
-                        <img src="images/logo.png" border="1" alt="Logo del Centro" class="col-md-3" id="logo" >
-                    </a>
-                </h1>        
-            </div>
-        </div>
-    </footer>
-
-    
+	</div> 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -245,7 +209,7 @@
         </div>
     </script>
 
-    |<!--Panel de Logs-->
+    <!--Panel de Logs-->
     <script type="text/x-template" id="logsTemplate">
          <div class="panel panel-default" id="panelLogs">
                 <div class="panel-heading">
@@ -285,7 +249,7 @@
         </button>
     </script>
 
-    |<!--Panel de Memoria -->
+    <!--Panel de Memoria -->
     <script type="text/x-template" id="memoriaPanelTemplate">
         <div class="panel panel-default" id="panelMemoria">
             <panelheading targets="#bodyMemoria" titulo="Memoria del Sistema"
@@ -297,7 +261,7 @@
         </div>
     </script>
 
-|<!--Modal de Mensaje-->
+<!--Modal de Mensaje-->
     <script type="text/x-template" id="modalTemplate">
         <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" 
             aria-labelledby="basicModal" aria-hidden="true">
