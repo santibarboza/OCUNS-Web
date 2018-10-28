@@ -185,7 +185,7 @@ function leerUsuario(texto){
     var usuario=prompt(texto);
     $.ajax({
         method: "GET",
-        url: "/setLectura?id="+vm.id"&leer="+usuario, 
+        url: "/setLectura?id="+vm.id+"&leer="+usuario, 
         success: function(data,textStatus){
          console.log("Respuesta del server en /setLectura: \n"+JSON.stringify(data));
          interpretarData(data);
