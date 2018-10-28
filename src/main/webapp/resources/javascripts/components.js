@@ -161,13 +161,16 @@ Vue.component('botonDesplegar',{
 //Componente Heading de Panel
 Vue.component('panelheading',{
   template: '#headingTemplate',
-  props: ['targets', 'titulo'],
+  props: ['targets', 'titulo','desplegado'],
   computed:{
       getTarget: function(){
         return this.targets;
       },
       getTitulo: function(){
         return this.titulo;
+      },
+      getDesplegado:function(){
+        return this.desplegado;
       }
   }  
 });
