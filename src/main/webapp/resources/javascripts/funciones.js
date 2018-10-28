@@ -154,10 +154,10 @@ function detener(){
           console.log("Error "+errorThrown+"... "+textStatus);
         }
     });
-    compilarCodigoFuente();
+    compilarCodigoFuente(vm.panelCode.value,vm.panelCode.direccionInicio);
 }
-function compilarCodigoFuente(){
-    var dataBody={"codigoFuente":this.panel.value, "direccionInicio": this.panel.direccionInicio};
+function compilarCodigoFuente(value,direccionInicio){
+    var dataBody={"codigoFuente":value, "direccionInicio": direccionInicio};
       $.ajax({
         method: "POST",
         url: "/compilar?id="+vm.id, 
@@ -175,6 +175,6 @@ function compilarCodigoFuente(){
         }
       });
       console.log("Se envio un POST a /compilar con");
-      console.log("Codigo Fuente: \n"+this.panel.value);
-      console.log("Direccion de Inicio: "+this.panel.direccionInicio);
+      console.log("Codigo Fuente: \n"+value);
+      console.log("Direccion de Inicio: "+direccionInicio);
 }

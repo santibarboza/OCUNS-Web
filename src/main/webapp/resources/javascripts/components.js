@@ -235,7 +235,7 @@ Vue.component('panelcode-app',{
   },
   methods:{
     Compilar:function(){
-      compilarCodigoFuente();
+      compilarCodigoFuente(this.panel.value,this.panel.direccionInicio);
     }
   }      
 });
