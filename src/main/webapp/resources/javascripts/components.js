@@ -173,9 +173,6 @@ Vue.component('panelheading',{
       },
       getTitulo: function(){
         return this.titulo;
-      },
-      getDesplegado:function(){
-        return this.desplegado;
       }
   }  
 });
