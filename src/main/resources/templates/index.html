@@ -155,7 +155,7 @@
             <div class="panel panel-default" id="panelCompilado">
                <div class="panel-heading">
                     <h3 class="panel-title col-md-10">Compilado</h3> 
-                    <button title="Descargar Codigo Fuente" class="btn btn-default col-md-2 menuB"
+                    <button title="Descargar Codigo Compilado" class="btn btn-default col-md-2 menuB"
                     @click="descargarCompilado">
                         <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
                     </button>
@@ -237,7 +237,7 @@
     <!--Panel de Registros-->
     <script type="text/x-template" id="registroPanelTemplate">
         <div class="panel panel-default" id="panelRegistros">
-            <panelheading targets="#bodyRegistro" titulo="Registros del Procesador"></panelheading>
+            <panelheading :targets="#bodyRegistro" :titulo="Registros del Procesador"></panelheading>
             <div class="panel-body collapse in" id="bodyRegistro">
                 <registro-table-app :registros="registros" :inicio="0" :fin="8" id="row1"> 
                 </registro-table-app>
@@ -249,17 +249,17 @@
 
     |<!--Panel de Logs-->
     <script type="text/x-template" id="logsTemplate">
-            <div class="panel panel-default" id="panelLogs">
+         <div class="panel panel-default" id="panelLogs">
                 <div class="panel-heading">
-                <h3 class="panel-title col-md-10">Logs del Sistema</h3>
-                <button title="Descargar Codigo Fuente" class="btn btn-default col-md-1 menuB"
+                <h3 class="panel-title col-md-9">Logs del Sistema</h3>
+                <button class="btn btn-default col-md-1 menuB" title="Borrar Logs">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </button>
+                <button title="Descargar Logs" class="btn btn-default col-md-1 menuB"
                     @click="descargarLogs">
                         <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
-                    </button>
-                <button type="button" class="btn btn-default col-md-1 closebutton" 
-                data-toggle="collapse" data-target="#bodyLog"  >
-                    <span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span>
                 </button>
+                <botonDesplegar :targets="#bodyRegistro" :desplegado="logs.desplegado" </botonDesplegar>
             </div>
             <div class="panel-body collapse" id="bodyLog">
                 <table class="table table-bordered" id="tablaMemoria">
@@ -278,11 +278,17 @@
         </div>
     </script>
 
+    <script type="text/x-template" id="botonDesplegarTemplate">
+        <button type="button" class="btn btn-default col-md-1 closebutton" 
+        data-toggle="collapse" :data-target="getTarget" :click="toogle">
+            <span class="glyphicon" :class="getIcono" aria-hidden="true"></span>
+        </button>
+    </script>
 
     |<!--Panel de Memoria -->
     <script type="text/x-template" id="memoriaPanelTemplate">
         <div class="panel panel-default" id="panelMemoria">
-            <panelheading targets="#bodyMemoria" titulo="Memoria del Sistema"></panelheading>
+            <panelheading :targets="#bodyMemoria" :titulo="Memoria del Sistema"></panelheading>
             <div class="panel-body collapse" id="bodyMemoria">
                 <memoria-table-app :memorias="memorias" :cantxfilas="16" id="tablaMemoria"> 
                 </memoria-table-app>

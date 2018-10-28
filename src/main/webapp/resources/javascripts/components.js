@@ -130,12 +130,37 @@ Vue.component('panellogs-app',{
   methods:{
     descargarLogs:function(){
       descargarArchivo(generarTexto(this.logs.value), 'logs.txt');
-    }  
+    }
+    borrarLogs:function(){
+      logs.value="Logs:\n";
+    }   
   }
 });
 
 //Componente Heading de Panel
 Vue.component('panelheading',{
+  template: '#botonDesplegarTemplate',
+  props: ['targets', 'desplegado'],
+  computed:{
+      getTarget: function(){
+        return this.targets;
+      },
+      getIcono: function(){
+        return{
+          'glyphicon-collapse-up':desplegado,
+          'glyphicon-collapse-down':!desplegado,
+        };
+      }
+  }, 
+  methods:{
+    toogle:function(){
+      desplegado=!desplegado;
+    } 
+  }
+});
+
+//Componente Boton de Desplegar
+Vue.component('botonDesplegar',{
   template: '#headingTemplate',
   props: ['targets', 'titulo'],
   computed:{
@@ -307,7 +332,8 @@ var vm=new Vue({
         registros:[],
         memorias:[],
         logs:{
-          value:"Logs:\n"
+          value:"Logs:\n",
+          desplegado:false
         }
       },
       modal:{

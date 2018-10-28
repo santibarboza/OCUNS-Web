@@ -139,6 +139,7 @@ font-weight: 400;
 }
 .panel-title{
     text-align:center;
+    padding-right: 0px;
 }
 #row1{
     margin-bottom:10px;
