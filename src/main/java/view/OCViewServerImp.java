@@ -70,7 +70,7 @@ public class OCViewServerImp implements OCViewServer{
 	}
 	public String pedirDialogo(String pedido){
 		String retorno=valorLeido;
-		if(!pudoLeer)
+		if(!pudoLeer){
 			retorno= "Invalido";
 			accionPedidoLectura= new ArrayList<Accion>();	
 			accionPedidoLectura.add(accionFactory.crearAccionDefault("LoadFF",pedido));	
