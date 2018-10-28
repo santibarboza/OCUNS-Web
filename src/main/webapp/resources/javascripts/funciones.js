@@ -198,7 +198,7 @@ function leerUsuario(texto){
 function guardarCodigoFuente(){
      descargarArchivo(generarTexto(vm.panelCode.value), 'archivo.ocuns');
 }
-function guardarCodigoCompilado){
+function guardarCodigoCompilado(){
      descargarArchivo(generarTexto(vm.panelCompilado.value), 'compilado.txt');
 }
 function guardarLogs(){
