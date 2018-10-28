@@ -276,7 +276,6 @@ Vue.component('botonera-ejecucion-app',{
 Vue.component('botonera-ventanas-app',{
   template: '#botoneraVentanasTemplate'
 });
-lda R2,03
 //Componente ModalMensaje
 Vue.component('modal-mensaje-app',{
   template: '#modalTemplate',
