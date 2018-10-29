@@ -37,6 +37,9 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    <form>
+        <input type="file" id="archivoAbierto" style="display:none" >
+    </form>
     <div class="container-fluid" id="panelIde">
 		<div class= "col-md-12">
             <modal-mensaje-app :modal="modal"></modal-mensaje-app>
@@ -157,6 +160,15 @@
                     @click="descargarFuente">
                         <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
                     </button>
+                </div>
+                <div class="panel-heading">
+                    <h3 style="" class="panel-title col-md-8">Codigo Fuente</h3> 
+                    <a href="javascript:doClick()" title="Abrir Archivo" class="btn btn-default col-md-2 menuB">
+                        <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                    </a>
+                    <button class="btn btn-default col-md-2 menuB" title="Descargar Codigo Fuente">
+                        <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                    </button>               
                 </div>
                 <div class="panel-body">
                     <form role="form">

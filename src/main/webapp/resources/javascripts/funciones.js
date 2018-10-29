@@ -255,3 +255,19 @@ function seguirEjecutando(){
         }
       });
 }
+function leerArchivo(e) {
+  var archivo = e.target.files[0];
+  if (!archivo) {
+    return;
+  }
+  var lector = new FileReader();
+  lector.onload = function(e) {
+  var contenido = e.target.result;
+  vm.panelCode.value=contenido;
+};
+function doClick() {
+  var el = document.getElementById("archivoAbierto");
+  if (el) {
+    el.click();
+  }
+}

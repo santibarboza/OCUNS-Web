@@ -461,4 +461,5 @@ $( document ).ready(function() {
       else
         console.log("Tipos de Ejecucion:"+clickedIndex+"-"+newValue);
   });
+  document.getElementById('archivoAbierto').addEventListener('change', leerArchivo, false);
 });
