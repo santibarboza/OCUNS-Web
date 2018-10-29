@@ -450,7 +450,6 @@ var vm=new Vue({
     }
   }
 });
-
 //Configuracion de Seleccion de Ventanas
 $( document ).ready(function() {
   $('#ventanas').selectpicker('selectAll');
@@ -462,4 +461,5 @@ $( document ).ready(function() {
         console.log("Tipos de Ejecucion:"+clickedIndex+"-"+newValue);
   });
   document.getElementById('archivoAbierto').addEventListener('change', leerArchivo, false);
+
 });
