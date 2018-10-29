@@ -254,6 +254,8 @@ function seguirEjecutando(){
           console.log("Error "+errorThrown+"... "+textStatus);
         }
       });
+}
+
 function leerArchivo(e) {
   var archivo = e.target.files[0];
   if (!archivo) {
@@ -271,5 +273,4 @@ function doClick() {
   if (el) {
     el.click();
   }
-};
 }
