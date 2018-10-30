@@ -26,6 +26,7 @@ var vm=new Vue({
         value:"Codigo Compilado", 
         size:3,
         ver:true,
+        tipoEjecucion:0,
         habilitaEjecucion:false
       },
       panelSimulacion:{
@@ -112,6 +113,9 @@ var vm=new Vue({
     },
     habilita_EjecucionPAP:function(cond){
       this.botoneraEjecucion.habilita_PAP=cond;
+    },
+    updateTipoEjecucion:function(index){
+      this.panelCompilado.tipoEjecucion=index;
     },
     setearEjecutando:function(cond){
       this.botoneraEjecucion.ejecutando=cond;

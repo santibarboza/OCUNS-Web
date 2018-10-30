@@ -64,7 +64,10 @@
             },
             ejecutar: function(){
               //controlar si es ejecucion paso a paso
-              this.iniciarEjecucion();
+              if(this.panel.tipoEjecucion==0)
+                this.iniciarEjecucion();
+              else
+                this.ejecutarTodo();
             },
             ejecutarTodo:function(){
                 $.ajax({

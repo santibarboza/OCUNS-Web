@@ -89,8 +89,10 @@ $( document ).ready(function() {
     function(e, clickedIndex, newValue, oldValue) {
       if(e.currentTarget.id=="ventanas")
         vm.updateSizePaneles(clickedIndex,newValue);
-      else
-        console.log("Tipos de Ejecucion:"+clickedIndex+"-"+newValue);
+      else{
+        vm.updateTipoEjecucion(clickedIndex);
+        console.log("Tipos de Ejecucion:"+clickedIndex+"-"+newValue); 
+      }
   });
   document.getElementById('archivoAbierto').addEventListener('change', leerArchivo, false);
 
