@@ -303,11 +303,6 @@ Vue.component('botonera-ejecucion-app',{
 Vue.component('botonera-ventanas-app',{
   template: '#botoneraVentanasTemplate'
 });
-//Componente ModalMensaje
-Vue.component('modal-mensaje-app',{
-  template: '#modalTemplate',
-  props: ['modal']  
-});
 
 //Objeto Vue Principal
 var vm=new Vue({
