@@ -1,64 +1,59 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>OCUNS-Entorno Web</title>
+    <head>
+        <title>OCUNS-Entorno Web</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+        <link  id="cssArchivo" rel="stylesheet" type="text/css" href = "resources/stylesheets/Formato2.css" />
+    </head>
+    <body>
+        <div th:include="componentes/encabezado::navBar"></div>
+        <div th:include="componentes/archivoAbierto::archivoAbierto"></div>
+        <div class="container-fluid" id="panelIde">
+    		<div class= "col-md-12">
+                <modal-mensaje-app :modal="modal"></modal-mensaje-app>
+        	    <botonera-ejecucion-app :botonera="botoneraEjecucion"></botonera-ejecucion-app>
+                <botonera-ventanas-app></botonera-ventanas-app>
+            </div>
+            <div class= "col-md-12">
+         	    <panelcode-app :panel="panelCode" :index="0" v-if="panelCode.ver"></panelcode-app>
+                <panelcompilado-app :panel="panelCompilado" :index="1" v-if="panelCompilado.ver"></panelcompilado-app>
+                <panelsimulacion-app :panel="panelSimulacion" :index="2" v-if="panelSimulacion.ver"></panelsimulacion-app>
+            </div>
+    	</div> 
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-    <link  id="cssArchivo" rel="stylesheet" type="text/css" href = "resources/stylesheets/Formato2.css" />
+        <!--Funciones-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="resources/javascripts/vue.js" type="text/javascript"></script>
+        <script src="resources/javascripts/bootstrap-select.js"></script>
+        <script src="resources/javascripts/funciones.js" type="text/javascript"></script>
+        <script src="resources/javascripts/components.js" type="text/javascript"></script>
 
-  </head>
-  <body>
-
-    <div th:include="componentes/encabezado::navBar"></div>
-    <div th:include="componentes/archivoAbierto::archivoAbierto"></div>
-    <div class="container-fluid" id="panelIde">
-		<div class= "col-md-12">
-            <modal-mensaje-app :modal="modal"></modal-mensaje-app>
-    	    <botonera-ejecucion-app :botonera="botoneraEjecucion"></botonera-ejecucion-app>
-            <botonera-ventanas-app></botonera-ventanas-app>
-        </div>
-        <div class= "col-md-12">
-     	    <panelcode-app :panel="panelCode" :index="0" v-if="panelCode.ver"></panelcode-app>
-            <panelcompilado-app :panel="panelCompilado" :index="1" v-if="panelCompilado.ver"></panelcompilado-app>
-            <panelsimulacion-app :panel="panelSimulacion" :index="2" v-if="panelSimulacion.ver"></panelsimulacion-app>
-        </div>
-	</div> 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <!-- Templates-->
-    <!--Heading-->          <div th:include="componentes/headingTemplate::headingTemplate"></div>
-    <!--Registro-->         <div th:include="componentes/registroTemplate::registroTemplate"></div>
-    <!--Tabla Registros-->  <div th:include="componentes/registroTableTemplate::registroTableTemplate"></div>
-    <!--Memoria-->          <div th:include="componentes/memoriaTemplate::memoriaTemplate"></div>
-    <!--Tabla Memoria-->    <div th:include="componentes/memoriaTableTemplate::memoriaTableTemplate"></div>
-    <!--CodigoCompilado-->  <div th:include="componentes/compiladoTemplate::compiladoTemplate"></div>
-    <!--CodigoFuente-->     <div th:include="componentes/codeTemplate::codeTemplate"></div>
-    <!--Panel Simulacion--> <div th:include="componentes/simulacionTemplate::simulacionTemplate"></div>
-    <!--Panel deRegistros--><div th:include="componentes/registroPanelTemplate::registroPanelTemplate"></div>
-    <!--Panel de Logs-->    <div th:include="componentes/logsTemplate::logsTemplate"></div>
-    <!--Boton Desplegar --> <div th:include="componentes/botonDesplegarTemplate::botonDesplegarTemplate"></div>
-    <!--Panel de Memoria --><div th:include="componentes/memoriaPanelTemplate::memoriaPanelTemplate"></div>
-    <!--Modal de Mensaje--> <div th:include="componentes/modalTemplate::modalTemplate"></div>    
-    <!--Botonera Ejecucion--><div th:include="componentes/botoneraEjecuccionTemplate::botoneraEjecuccionTemplate"></div>    
-    <!--Botonera Ventanas--><div th:include="componentes/botoneraVentanasTemplate::botoneraVentanasTemplate"></div>   
-
-    <!--Funciones-->
-    <script src="resources/javascripts/vue.js" type="text/javascript"></script>
-    <script src="resources/javascripts/bootstrap-select.js"></script>
-    <script src="resources/javascripts/funciones.js" type="text/javascript"></script>
-    <script src="resources/javascripts/components.js" type="text/javascript"></script>
+        <!-- Templates-->
+        <!--Botnera Ejecucion--><div th:include="componentes/botoneraEjecuccionTemplate::botoneraEjecuccionTemplate"></div>    
+        <!--Botonera Ventanas--><div th:include="componentes/botoneraVentanasTemplate::botoneraVentanasTemplate"></div>   
+        <!--CodigoFuente-->     <div th:include="componentes/codeTemplate::codeTemplate"></div>
+        <!--CodigoCompilado-->  <div th:include="componentes/compiladoTemplate::compiladoTemplate"></div>
+        <!--Panel Simulacion--> <div th:include="componentes/simulacionTemplate::simulacionTemplate"></div>
+        <!--Panel deRegistros--><div th:include="componentes/registroPanelTemplate::registroPanelTemplate"></div>
+        <!--Tabla Registros-->  <div th:include="componentes/registroTableTemplate::registroTableTemplate"></div>
+        <!--Registro-->         <div th:include="componentes/registroTemplate::registroTemplate"></div>
+        <!--Panel de Memoria --><div th:include="componentes/memoriaPanelTemplate::memoriaPanelTemplate"></div>
+        <!--Tabla Memoria-->    <div th:include="componentes/memoriaTableTemplate::memoriaTableTemplate"></div>
+        <!--Memoria-->          <div th:include="componentes/memoriaTemplate::memoriaTemplate"></div>
+        <!--Panel de Logs-->    <div th:include="componentes/logsTemplate::logsTemplate"></div>
+        <!--Heading-->          <div th:include="componentes/headingTemplate::headingTemplate"></div>
+        <!--Boton Desplegar --> <div th:include="componentes/botonDesplegarTemplate::botonDesplegarTemplate"></div>
+        <!--Modal de Mensaje--> <div th:include="componentes/modalTemplate::modalTemplate"></div>    
     </body>
-
 </html>
 
 
