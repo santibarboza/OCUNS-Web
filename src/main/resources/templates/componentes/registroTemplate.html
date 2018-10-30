@@ -1,0 +1,7 @@
+<!--Registro-->
+<script type="text/x-template" th:fragment="registroTemplate" id="registroTemplate">
+    <th
+        class="h5 tablaRegistro" :class="{Ultimo: ultimoCambio}" :title="getTitulo">
+            {{registro.contenido}}       
+    </th>        
+</script>
