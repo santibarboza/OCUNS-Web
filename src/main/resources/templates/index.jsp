@@ -18,7 +18,7 @@
 
   </head>
   <body>
-    <jsp:include page="componentes/encabezado.html" flush="true" />
+    
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
