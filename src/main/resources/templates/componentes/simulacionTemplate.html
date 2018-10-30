@@ -1,0 +1,12 @@
+<div th:fragment="simulacionTemplate">
+    <!--Panel Simulacion--> 
+    <script type="text/x-template" id="simulacionTemplate">
+        <div id="contenedorSimulacion"  class="col-xs-12" :class="getBigSize">
+                <div id="panelSimulacion">
+                    <registro-panel-app :registros="panel.registros"></registro-panel-app>
+                    <panelmemoria-app :memorias="panel.memorias"></panelmemoria-app>
+                    <panellogs-app :logs="panel.logs"></panellogs-app>
+                </div>
+            </div>
+    </script>
+</div>

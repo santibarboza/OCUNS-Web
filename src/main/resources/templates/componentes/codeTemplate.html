@@ -1,0 +1,40 @@
+<div th:fragment="codeTemplate">
+    <!--CodigoFuente-->
+    <script type="text/x-template" id="codeTemplate">
+        <div id="contenedorCode" class="col-xs-12" :class="getBigSize">
+            <div class="panel panel-default" id="panelCode">
+                <div class="panel-heading">
+                    <h3 style="" class="panel-title col-md-8">Codigo Fuente</h3> 
+                    <a href="javascript:doClick()" title="Abrir Archivo" class="btn btn-default col-md-2 menuB">
+                        <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                    </a>
+                    <button class="btn btn-default col-md-2 menuB" title="Descargar Codigo Fuente">
+                        <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                    </button>               
+                </div>
+                <div class="panel-body">
+                    <form role="form">
+                        <textarea id="sourceCode"
+                          class="form-control source-code"
+                          style="margin-bottom:5px;"
+                          rows="20"
+                          tab-support
+                          select-line
+                          v-model="panel.value">
+                        </textarea>
+                        <div id="barraCompilar">
+                          <h5 class="col-md-6" id="labeldirinicio">Direccion de Inicio:</h5>
+                          <textarea id="dirInicio" class="col-md-2" rows="1" cols="2" title="Dirección de Inicio" 
+                          maxlength="2" v-model="panel.direccionInicio">
+                          </textarea>
+                          <button type="button" class="btn btn-default col-md-4" 
+                          id="compilar" title="Compilar Codigo Fuente" @click="Compilar">
+                            Compilar
+                          </button>
+                        </div> 
+                    </form>
+              </div>
+           </div>
+        </div>
+    </script>
+</div>

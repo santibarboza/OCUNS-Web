@@ -1,0 +1,15 @@
+<div th:fragment="memoriaTableTemplate">
+    <!--Tabla Memoria-->
+    <script type="text/x-template" id="memoriaTableTemplate">
+        <table class="table table-bordered">
+            <tbody>
+                <tr v-for="i in cantxfilas">
+                    <th is="memoria-app" v-for="j in cantfilas" 
+                        style="padding:0px;text-align:center;"
+                        :memoria="getMemoria(i,j)" :index="getIndex(i,j)" >
+                    </th>
+                </tr >
+            </tbody>
+        </table>
+    </script>       
+</div>

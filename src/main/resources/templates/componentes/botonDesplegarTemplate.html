@@ -1,0 +1,9 @@
+<div th:fragment="botonDesplegarTemplate">
+    <!--Boton Desplegar -->
+    <script type="text/x-template" id="botonDesplegarTemplate">
+        <button type="button" :title="getTitle" class="btn btn-default col-md-1 closebutton" 
+        data-toggle="collapse" :data-target="getTarget" @click="toogle">
+            <span class="glyphicon" :class="getIcono" aria-hidden="true"></span>
+        </button>
+    </script>
+</div>

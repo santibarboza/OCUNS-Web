@@ -1,0 +1,13 @@
+<div th:fragment="memoriaPanelTemplate">
+    <!--Panel de Memoria -->
+    <script type="text/x-template" id="memoriaPanelTemplate">
+        <div class="panel panel-default" id="panelMemoria">
+            <panelheading targets="#bodyMemoria" titulo="Memoria del Sistema"
+            :desplegado="memorias.desplegado"></panelheading>
+            <div class="panel-body collapse" id="bodyMemoria">
+                <memoria-table-app :memorias="memorias.value" :cantxfilas="16" id="tablaMemoria"> 
+                </memoria-table-app>
+            </div>
+        </div>
+    </script>
+</div>

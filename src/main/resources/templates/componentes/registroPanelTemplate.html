@@ -1,0 +1,15 @@
+<div th:fragment="registroPanelTemplate">
+    <!--Panel de Registros-->
+    <script type="text/x-template" id="registroPanelTemplate">
+        <div class="panel panel-default" id="panelRegistros">
+            <panelheading targets="#bodyRegistro" titulo="Registros del Procesador"
+            :desplegado="registros.desplegado"></panelheading>
+            <div class="panel-body collapse in" id="bodyRegistro">
+                <registro-table-app :registros="registros.value" :inicio="0" :fin="8" id="row1"> 
+                </registro-table-app>
+                <registro-table-app :registros="registros.value" :inicio="8" :fin="16" id="row1"> 
+                </registro-table-app>
+            </div>
+        </div>
+    </script>
+</div>

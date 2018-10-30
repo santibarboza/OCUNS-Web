@@ -1,0 +1,36 @@
+<div th:fragment="compiladoTemplate">  
+    <!--CodigoCompilado-->
+    <script type="text/x-template" id="compiladoTemplate">
+        <div id="contenedorCompilado" class="col-xs-12" :class="getBigSize">
+            <div class="panel panel-default" id="panelCompilado">
+               <div class="panel-heading">
+                    <h3 class="panel-title col-md-10">Compilado</h3> 
+                    <button title="Descargar Codigo Compilado" class="btn btn-default col-md-2 menuB"
+                    @click="descargarCompilado">
+                        <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="panel-body">
+                   <form role="form">
+                        <textarea id="codigoCompilado"
+                          rows="20"
+                          v-model="panel.value"
+                          readonly>     
+                        </textarea>
+                        <div id="barraCompilar">
+                            <select class="selectpicker col-md-8" id="tipoEjecucion">
+                                <option>De a 1 Instrucción</option>
+                                <option>Todo el Código</option>
+                            </select>   
+                            <button type="button" class="btn btn-default col-md-4" title="Ejecutar" 
+                                :disabled="!panel.habilitaEjecucion" 
+                                @click="ejecutar" id="ejecutar">
+                                Ejecutar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </script>   
+</div>
