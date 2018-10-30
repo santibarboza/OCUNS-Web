@@ -1,8 +1,10 @@
-<!--Memoria-->
-<script type="text/x-template" th:fragment="memoriaTemplate" id="memoriaTemplate">
-    <th 
-        class="h5 tablaMemoria"  :title="getTitulo" :class="clasesMemoria"
-        style="padding:0px;text-align:center;">
-            {{memoria.contenido}}
-    </th>      
-</script>
+<div th:fragment="memoriaTemplate">
+	<!--Memoria-->
+	<script type="text/x-template" id="memoriaTemplate">
+	    <th 
+	        class="h5 tablaMemoria"  :title="getTitulo" :class="clasesMemoria"
+	        style="padding:0px;text-align:center;">
+	            {{memoria.contenido}}
+	    </th>      
+	</script>
+</div>

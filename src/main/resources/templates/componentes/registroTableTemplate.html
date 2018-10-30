@@ -1,16 +1,18 @@
-<!--Tabla Registros-->
-<script type="text/x-template" th:fragment="registroTableTemplate" id="registroTableTemplate">
-    <table class="table table-bordered">
-        <thead><tr>
-            <th v-for="(registro,i) in registros" v-if="enRango(i)" 
-            style="padding-top:3px;padding-bottom:3px;text-align:center;">
-                {{getTitulo(i)}}
-            </th>
-        </tr></thead>
-        <tbody> <tr>
-           <th is="registro-app" v-for="(registro,i) in registros" 
-            :registro="registro" :index="i" v-if="enRango(i)">
-            </th>
-        </tr></tbody>
-    </table>
-</script>
+<div th:fragment="registroTableTemplate">
+    <!--Tabla Registros-->
+    <script type="text/x-template" id="registroTableTemplate">
+        <table class="table table-bordered">
+            <thead><tr>
+                <th v-for="(registro,i) in registros" v-if="enRango(i)" 
+                style="padding-top:3px;padding-bottom:3px;text-align:center;">
+                    {{getTitulo(i)}}
+                </th>
+            </tr></thead>
+            <tbody> <tr>
+               <th is="registro-app" v-for="(registro,i) in registros" 
+                :registro="registro" :index="i" v-if="enRango(i)">
+                </th>
+            </tr></tbody>
+        </table>
+    </script>
+</div>
