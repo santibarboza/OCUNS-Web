@@ -75,6 +75,7 @@
                   url: "/iniciarEjecucion?id="+vm.id, 
                   success: function(data,textStatus){
                   interpretarData(data);
+                  vm.resetIR();
                   seguirEjecutando();
                   },
                   error:function(textStatus,errorThrown){

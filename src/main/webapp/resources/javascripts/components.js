@@ -91,6 +91,9 @@ var vm=new Vue({
     resetRegistros: function(){
         EventBus.$emit('reset_Registro');
     },
+    resetIR: function(){
+      this.ir=this.panelCode.direccionInicio;
+    },
     resetAll: function(){
       this.resetRegistros();
       this.resetMemoria();
