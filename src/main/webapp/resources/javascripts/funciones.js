@@ -1,4 +1,3 @@
-
 var salto="---------------------------------------------";
 
 function interpretarData(data){
@@ -46,79 +45,19 @@ function interpretarData(data){
     });
     vm.agregarLog(salto);
 }
-function getSiguientePaso(){
-    $.ajax({
-        method: "GET",
-        url: "/siguientePaso?id="+vm.id, 
-        success: function(data,textStatus){
-         console.log("Respuesta del server en /siguientePaso: \n"+JSON.stringify(data));
-         interpretarData(data);
-        },
-        error:function(textStatus,errorThrown){
-          console.log("Error "+errorThrown+"... "+textStatus);
-        }
-      });
-}
-function detener(){
-    $.ajax({
-        method: "GET",
-        url: "/detenerEjecucion?id="+vm.id, 
-        success: function(data,textStatus){
-         console.log("Respuesta del server en /detenerEjecucion: \n"+JSON.stringify(data));
-         interpretarData(data);
-         vm.habilita_EjecucionPAP(false);
-         vm.setearEjecutando(false);
-        },
-        error:function(textStatus,errorThrown){
-          console.log("Error "+errorThrown+"... "+textStatus);
-        }
-    });
-    compilarCodigoFuente(vm.panelCode.value,vm.panelCode.direccionInicio);
-}
-function compilarCodigoFuente(value,direccionInicio){
-    var dataBody={"codigoFuente":value, "direccionInicio": direccionInicio};
-      $.ajax({
-        method: "POST",
-        url: "/compilar?id="+vm.id, 
-        data: JSON.stringify(dataBody),  
-        headers:{
-          "Content-Type": "application/json",
-        },
-        success: function(data,textStatus){
-         console.log("Respuesta del server en /Compilar: \n"+JSON.stringify(data));
-         vm.resetAll();
-         interpretarData(data);
-        },
-        error:function(textStatus,errorThrown){
-          console.log("Error "+errorThrown+"... "+textStatus);
-        }
-      });
-      console.log("Se envio un POST a /compilar con");
-      console.log("Codigo Fuente: \n"+value);
-      console.log("Direccion de Inicio: "+direccionInicio);
-}
+
 function leerUsuario(texto){
     var usuario=prompt(texto);
     $.ajax({
         method: "GET",
         url: "/setLectura?id="+vm.id+"&leer="+usuario, 
         success: function(data,textStatus){
-         console.log("Respuesta del server en /setLectura: \n"+JSON.stringify(data));
          interpretarData(data);
         },
         error:function(textStatus,errorThrown){
-          console.log("Error "+errorThrown+"... "+textStatus);
+          console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
         }
       });
-}
-function guardarCodigoFuente(){
-     descargarArchivo(generarTexto(vm.panelCode.value), 'archivo.ocuns');
-}
-function guardarCodigoCompilado(){
-     descargarArchivo(generarTexto(vm.panelCompilado.value), 'compilado.txt');
-}
-function guardarLogs(){
-     descargarArchivo(generarTexto(vm.panelSimulacion.logs.value), 'logs.txt');
 }
 function descargarArchivo(contenidoEnBlob, nombreArchivo) {
     var reader = new FileReader();
@@ -142,35 +81,6 @@ function generarTexto(texto) {
         type: 'text/plain'
     });
 };
-function ejecutar(){
-    $.ajax({
-        method: "GET",
-        url: "/iniciarEjecucion?id="+vm.id, 
-        success: function(data,textStatus){
-         console.log("Respuesta del server en /IniciarEjecucion: \n"+JSON.stringify(data));
-         interpretarData(data);
-        seguirEjecutando();
-        },
-        error:function(textStatus,errorThrown){
-          console.log("Error "+errorThrown+"... "+textStatus);
-        }
-      });
-}
-function seguirEjecutando(){
-    $.ajax({
-        method: "GET",
-        url: "/siguientePaso?id="+vm.id, 
-        success: function(data,textStatus){
-         console.log("Respuesta del server en /siguientePaso: \n"+JSON.stringify(data));
-         interpretarData(data);
-         if(vm.botoneraEjecucion.ejecutando)
-            seguirEjecutando();
-        },
-        error:function(textStatus,errorThrown){
-          console.log("Error "+errorThrown+"... "+textStatus);
-        }
-      });
-}
 
 //Configuracion de Seleccion de Ventanas
 $( document ).ready(function() {

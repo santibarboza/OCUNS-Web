@@ -66,20 +66,47 @@
               //controlar si es ejecucion paso a paso
               this.iniciarEjecucion();
             },
+            ejecutarTodo:function(){
+                $.ajax({
+                  method: "GET",
+                  url: "/iniciarEjecucion?id="+vm.id, 
+                  success: function(data,textStatus){
+                  interpretarData(data);
+                  seguirEjecutando();
+                  },
+                  error:function(textStatus,errorThrown){
+                    console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
+                  }
+                });
+            },
             iniciarEjecucion:function(){
               $.ajax({
                 method: "GET",
                 url: "/iniciarEjecucion?id="+vm.id, 
                 success: function(data,textStatus){
-                 console.log("Respuesta del server en /IniciarEjecucion: \n"+JSON.stringify(data));
                  interpretarData(data);
                 },
                 error:function(textStatus,errorThrown){
-                  console.log("Error "+errorThrown+"... "+textStatus);
+                  console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
                 }
               });
             }
           }
         });
+        
+      function seguirEjecutando(){
+        $.ajax({
+            method: "GET",
+            url: "/siguientePaso?id="+vm.id, 
+            success: function(data,textStatus){
+             interpretarData(data);
+             if(vm.botoneraEjecucion.ejecutando)
+                seguirEjecutando();
+            },
+            error:function(textStatus,errorThrown){
+                  console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
+            }
+         });
+      }
     </script> 
 </div>

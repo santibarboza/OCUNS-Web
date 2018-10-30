@@ -19,10 +19,31 @@
       props: ['botonera'] ,
       methods:{
         obtenerSiguientePaso:function(){
-          getSiguientePaso();
+          $.ajax({
+            method: "GET",
+            url: "/siguientePaso?id="+vm.id, 
+            success: function(data,textStatus){
+             interpretarData(data);
+            },
+            error:function(textStatus,errorThrown){
+              console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
+            }
+          });
         },
         detenerEjecucion:function(){
-          detener();
+          $.ajax({
+            method: "GET",
+            url: "/detenerEjecucion?id="+vm.id, 
+            success: function(data,textStatus){
+              interpretarData(data);
+              vm.habilita_EjecucionPAP(false);
+              vm.setearEjecutando(false);
+            },
+            error:function(textStatus,errorThrown){
+              console.log("Error "+errorThrown+"... "+textStatus);
+            }
+          });
+          compilarCodigoFuente(vm.panelCode.value,vm.panelCode.direccionInicio);
         }    
       }
     });

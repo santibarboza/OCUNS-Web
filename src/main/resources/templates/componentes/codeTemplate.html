@@ -69,7 +69,6 @@
           }
         }      
       });
-
       function leerArchivo(e) {
         var archivo = e.target.files[0];
         if (!archivo) {
@@ -87,6 +86,22 @@
         if (el) {
           el.click();
         }
+      }
+      function compilarCodigoFuente(value,direccionInicio){
+        var dataBody={"codigoFuente":value, "direccionInicio": direccionInicio};
+          $.ajax({
+            method: "POST",
+            url: "/compilar?id="+vm.id, 
+            data: JSON.stringify(dataBody),  
+            headers:{ "Content-Type": "application/json"  },
+            success: function(data,textStatus){
+             vm.resetAll();
+             interpretarData(data);
+            },
+            error:function(textStatus,errorThrown){
+              console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
+            }
+        });
       }
     </script>
 </div>
