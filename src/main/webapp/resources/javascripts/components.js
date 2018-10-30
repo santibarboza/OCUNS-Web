@@ -17,7 +17,7 @@ var vm=new Vue({
   },
   data:{
       panelCode:{
-        value:"Codigo Fuente",
+        value:"",
         direccionInicio:"00",
         size:4,
         ver:true
