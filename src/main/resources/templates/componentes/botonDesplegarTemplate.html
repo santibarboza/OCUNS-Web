@@ -6,4 +6,38 @@
             <span class="glyphicon" :class="getIcono" aria-hidden="true"></span>
         </button>
     </script>
+    <script type="text/javascript">
+    	//Componente Boton de Desplegar
+		Vue.component('botonDesplegar',{
+		  template: '#botonDesplegarTemplate',
+		  props: ['targets', 'desplegado'],
+		  data:function(){
+		      return {
+		          desp:this.desplegado
+		      };
+		  },
+		  computed:{
+		      getTitle: function(){
+		        if(this.desp)
+		          return "Colapsar Panel";
+		        else
+		          return "Desplegar Panel";
+		      },
+		      getTarget: function(){
+		        return this.targets;
+		      },
+		      getIcono: function(){
+		        return{
+		          'glyphicon-collapse-up':this.desp,
+		          'glyphicon-collapse-down':!this.desp,
+		        };
+		      }
+		  }, 
+		  methods:{
+		    toogle:function(){
+		      this.desp=!this.desp;
+		    } 
+		  }
+		});
+    </script>
 </div>

@@ -1,90 +1,6 @@
 
 var salto="---------------------------------------------";
 
-function ocultarCode(){
-    if(vm.panelCode.ver){
-        vm.panelCode.ver=false;
-        if(contenedorCompilado.ver && contenedorSimulacion.ver){
-            contenedorCompilado.bigSize='col-md-4';
-            contenedorSimulacion.bigSize='col-md-8';
-         }else if(!contenedorSimulacion.ver)
-                contenedorCompilado.bigSize='col-md-12';
-            else
-                contenedorSimulacion.bigSize='col-md-12';
-    }
-}
-function mostrarCode(){
-  if(!this.ver){
-        this.ver=true;
-        this.bigSize='col-md-4';
-        if(contenedorCompilado.ver && contenedorSimulacion.ver){
-            contenedorCompilado.bigSize='col-md-3';
-            contenedorSimulacion.bigSize='col-md-5';
-        }else if(contenedorCompilado.ver){
-                    this.bigSize='col-md-9';
-                    contenedorCompilado.bigSize='col-md-3';
-             }else if(contenedorSimulacion.ver){
-                    this.bigSize='col-md-7';
-                    contenedorSimulacion.bigSize='col-md-5';
-                }else 
-                    this.bigSize='col-md-12';            
-   }
-}
-function ocultarCompilado(){
-    if(this.ver){
-        this.ver=false;
-        if(contenedorCode.ver && contenedorSimulacion.ver)
-            contenedorCode.bigSize='col-md-7';
-        else if(!contenedorSimulacion.ver)
-                contenedorCode.bigSize='col-md-12';
-            else
-                contenedorSimulacion.bigSize='col-md-12';
-   }
-}
-function mostrarCompilado(){
-    if(!this.ver){
-        this.ver=true;
-        this.bigSize='col-md-3';
-        if(contenedorCode.ver && contenedorSimulacion.ver)
-            contenedorCode.bigSize='col-md-4';
-        else if(contenedorCode.ver)
-                    contenedorCode.bigSize='col-md-9';
-             else if(contenedorSimulacion.ver){
-                    this.bigSize='col-md-4';
-                    contenedorSimulacion.bigSize='col-md-8';
-                }else 
-                    this.bigSize='col-md-12';
-                
-    }
-}
-function ocultarSimulacion(){
-    if(this.ver){
-        this.ver=false;
-        if(contenedorCode.ver && contenedorCompilado.ver){
-            contenedorCode.bigSize='col-md-8';
-            contenedorCompilado.bigSize='col-md-4';
-        }else if(!contenedorCompilado.ver)
-                contenedorCode.bigSize='col-md-12';
-            else
-                contenedorCompilado.bigSize='col-md-12';
-   }
-}
-function mostrarSimulacion(){
-  if(!this.ver){
-        this.ver=true;
-        this.bigSize='col-md-5';
-        if(contenedorCode.ver && contenedorCompilado.ver){
-            contenedorCode.bigSize='col-md-4';
-            contenedorCompilado.bigSize='col-md-3';
-        }else if(contenedorCode.ver)
-                contenedorCode.bigSize='col-md-7';
-             else if(contenedorCompilado.ver){
-                    this.bigSize='col-md-8';
-                    contenedorCompilado.bigSize='col-md-4';
-                }else
-                    this.bigSize='col-md-12';
-   }
-}
 function interpretarData(data){
     $.each(data, function( index, accion ) {
         switch (accion.codigoAccion) {
@@ -256,21 +172,16 @@ function seguirEjecutando(){
       });
 }
 
-function leerArchivo(e) {
-  var archivo = e.target.files[0];
-  if (!archivo) {
-    return;
-  }
-  var lector = new FileReader();
-  lector.onload = function(e) {
-    var contenido = e.target.result;
-    vm.panelCode.value=contenido;
-  };
-  lector.readAsText(archivo);
-}
-function doClick() {
-  var el = document.getElementById("archivoAbierto");
-  if (el) {
-    el.click();
-  }
-}
+//Configuracion de Seleccion de Ventanas
+$( document ).ready(function() {
+  $('#ventanas').selectpicker('selectAll');
+  $("select").on("changed.bs.select", 
+    function(e, clickedIndex, newValue, oldValue) {
+      if(e.currentTarget.id=="ventanas")
+        vm.updateSizePaneles(clickedIndex,newValue);
+      else
+        console.log("Tipos de Ejecucion:"+clickedIndex+"-"+newValue);
+  });
+  document.getElementById('archivoAbierto').addEventListener('change', leerArchivo, false);
+
+});

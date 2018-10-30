@@ -8,7 +8,7 @@
                     <a href="javascript:doClick()" title="Abrir Archivo" class="btn btn-default col-md-2 menuB">
                         <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                     </a>
-                    <button class="btn btn-default col-md-2 menuB" title="Descargar Codigo Fuente">
+                    <button class="btn btn-default col-md-2 menuB" title="Descargar Codigo Fuente" @click="descargarFuente">
                         <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
                     </button>               
                 </div>
@@ -36,5 +36,57 @@
               </div>
            </div>
         </div>
+    </script>
+    <script type="text/javascript">
+      //Componente Panel de Codigo
+      Vue.component('panelcode-app',{
+        template: '#codeTemplate',
+        props: ['panel','index'],
+        computed:{
+          getPanel: function(){
+              return this.panel;
+            },
+          getBigSize: function(){
+              return "col-md-"+this.panel.size;
+            },
+        },
+        created: function () {
+          EventBus.$on('cambioSizePanel', function (cambios) {
+            if(cambios.index == this.index)
+              this.panel.ver=cambios.ver;
+          }.bind(this));
+          EventBus.$on('newSize', function (sizes) {
+            if(this.panel.size!=sizes[this.index])
+              this.panel.size=sizes[this.index];
+          }.bind(this));
+        },
+        methods:{
+          Compilar:function(){
+            compilarCodigoFuente(this.panel.value,this.panel.direccionInicio);
+          },
+          descargarFuente:function(){
+            descargarArchivo(generarTexto(this.panel.value), 'archivo.ocuns');
+          }
+        }      
+      });
+
+      function leerArchivo(e) {
+        var archivo = e.target.files[0];
+        if (!archivo) {
+          return;
+        }
+        var lector = new FileReader();
+        lector.onload = function(e) {
+          var contenido = e.target.result;
+          vm.panelCode.value=contenido;
+        };
+        lector.readAsText(archivo);
+      }
+      function doClick() {
+        var el = document.getElementById("archivoAbierto");
+        if (el) {
+          el.click();
+        }
+      }
     </script>
 </div>

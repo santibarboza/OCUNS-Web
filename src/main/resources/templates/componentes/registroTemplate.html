@@ -6,4 +6,29 @@
 	            {{registro.contenido}}       
 	    </th>        
 	</script>
+	<script type="text/javascript">
+		//Componente de Registro
+		Vue.component('registro-app',{
+		  template: '#registroTemplate',
+		  props: ['registro', 'index'],
+		  computed:{
+		      getTitulo: function(){
+		        return "Registro R"+this.index.toString(16).toUpperCase();
+		      }
+		  },
+		  data:function(){
+		      return {
+		          ultimoCambio:false
+		      }
+		  },
+		  created: function () {
+		    EventBus.$on('ultimoCambioRegistro', function (cambios) {
+		      this.ultimoCambio=cambios.includes(this.index) ;
+		    }.bind(this));
+		    EventBus.$on('reset_Registro', function (cambios) {
+		      this.registro.contenido="00";
+		    }.bind(this));
+		  }  
+		});
+	</script>
 </div>

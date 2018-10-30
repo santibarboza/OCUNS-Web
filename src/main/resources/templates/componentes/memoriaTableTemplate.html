@@ -11,5 +11,29 @@
                 </tr >
             </tbody>
         </table>
-    </script>       
+    </script>  
+    <script type="text/javascript">
+        //Componente Tabla de Memoria
+        Vue.component('memoria-table-app',{
+          template: '#memoriaTableTemplate',
+          props: ['memorias','cantxfilas'], 
+          computed:{
+              cantfilas: function(){
+                return this.memorias.length/this.cantxfilas;
+              }
+          },
+          methods:{
+            getMemoria: function(i,j){
+              var indice=this.getIndex(i,j);
+              return this.memorias[indice];
+            },
+            getIndex: function(i,j){
+              var fila=i-1;
+              var columna=j-1;
+              var indice=fila*this.cantxfilas+columna; 
+              return indice;
+            }
+          }
+        });
+    </script>     
 </div>

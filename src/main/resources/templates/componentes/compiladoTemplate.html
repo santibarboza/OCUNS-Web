@@ -32,5 +32,54 @@
                 </div>
             </div>
         </div>
-    </script>   
+    </script>  
+    <script type="text/javascript">
+        //Componente Panel de Compilacion
+        Vue.component('panelcompilado-app',{
+          template: '#compiladoTemplate',
+          props: ['panel','index'],
+          computed:{
+            getPanel: function(){
+                return this.panel;
+              },
+            getBigSize: function(){
+                return "col-md-"+this.panel.size;
+              },
+            getPanel: function(){
+                return this.panel;
+              }
+          },
+          created: function () {
+            EventBus.$on('cambioSizePanel', function (cambios) {
+              if(cambios.index == this.index)
+                this.panel.ver=cambios.ver;
+            }.bind(this));
+            EventBus.$on('newSize', function (sizes) {
+                this.panel.size=sizes[this.index];
+            }.bind(this));
+          },
+          methods:{
+            descargarCompilado:function(){
+              descargarArchivo(generarTexto(this.panel.value), 'compilado.txt');
+            },
+            ejecutar: function(){
+              //controlar si es ejecucion paso a paso
+              this.iniciarEjecucion();
+            },
+            iniciarEjecucion:function(){
+              $.ajax({
+                method: "GET",
+                url: "/iniciarEjecucion?id="+vm.id, 
+                success: function(data,textStatus){
+                 console.log("Respuesta del server en /IniciarEjecucion: \n"+JSON.stringify(data));
+                 interpretarData(data);
+                },
+                error:function(textStatus,errorThrown){
+                  console.log("Error "+errorThrown+"... "+textStatus);
+                }
+              });
+            }
+          }
+        });
+    </script> 
 </div>

@@ -7,4 +7,44 @@
 	            {{memoria.contenido}}
 	    </th>      
 	</script>
+	<script type="text/javascript">
+		//Componente Memoria
+		Vue.component('memoria-app',{
+		  template: '#memoriaTemplate',
+		  props: ['memoria', 'index'],
+		  computed:{
+		      getTitulo: function(){
+		        return "Memoria: Direccion 0x"+this.index.toString(16).toUpperCase();
+		      },
+		      clasesMemoria:function(){
+		        return {
+		          ultimaMemoria: this.ultimoCambio,
+		          pcMemoria: this.esPC,
+		          irMemoria: this.esIR,
+		        }
+		      },
+		  },
+		  data:function(){
+		      return {
+		          ultimoCambio:false,
+		          esPC:false,
+		          esIR:false
+		      }
+		  },
+		  created: function () {
+		    EventBus.$on('ultimoCambioMemoria', function (cambios) {
+		      this.ultimoCambio=cambios.includes(this.index) ;
+		    }.bind(this));
+		    EventBus.$on('nuevopc', function (pc) {
+		      this.esPC=(pc==this.index)||(pc+1==this.index);
+		    }.bind(this));
+		    EventBus.$on('nuevoir', function (ir) {
+		      this.esIR=(ir==this.index)||(ir+1==this.index);
+		    }.bind(this));
+		    EventBus.$on('reset_Memoria', function (cambios) {
+		      this.memoria.contenido="00";
+		    }.bind(this));
+		  }  
+		});
+	</script>
 </div>

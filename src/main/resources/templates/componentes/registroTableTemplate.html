@@ -15,4 +15,19 @@
             </tr></tbody>
         </table>
     </script>
+    <script type="text/javascript">
+        //Componente Tabla de Registro
+        Vue.component('registro-table-app',{
+          template: '#registroTableTemplate',
+          props: ['registros','inicio','fin'],
+          methods:{
+              enRango: function(i){
+                return i>=this.inicio && i<this.fin;
+              },
+              getTitulo: function(i){
+                return "R"+i.toString(16).toUpperCase();
+              }
+          }  
+        });
+    </script>
 </div>

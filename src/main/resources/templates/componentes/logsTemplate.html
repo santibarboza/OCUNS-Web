@@ -31,4 +31,24 @@
             </div>
         </div>
     </script>
+    <script type="text/javascript">
+      //Componente Panel de Logs
+      Vue.component('panellogs-app',{
+        template: '#logsTemplate',
+        props: ['logs'],
+        computed:{
+          getLogs: function(){
+              return this.logs;
+            }
+        },
+        methods:{
+          descargarLogs:function(){
+            descargarArchivo(generarTexto(this.logs.value), 'logs.txt');
+          },
+          borrarLogs:function(){
+            this.logs.value="Logs:\n";
+          }   
+        }
+      });
+    </script>
 </div>

@@ -6,4 +6,19 @@
 	        <botonDesplegar :targets="targets" :desplegado="desplegado"></botonDesplegar>
 	    </div>
 	</script>
+	<script type="text/javascript">
+		//Componente Heading de Panel
+		Vue.component('panelheading',{
+		  template: '#headingTemplate',
+		  props: ['targets', 'titulo','desplegado'],
+		  computed:{
+		      getTarget: function(){
+		        return this.targets;
+		      },
+		      getTitulo: function(){
+		        return this.titulo;
+		      }
+		  }  
+		});
+	</script>
 </div>

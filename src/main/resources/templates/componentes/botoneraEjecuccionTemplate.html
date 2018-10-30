@@ -11,5 +11,20 @@
             Detener Ejecución
           </button>
         </div>
-    </script>
-  </div>
+  </script>
+  <script type="text/javascript">
+    //Componente BotoneraEjecucion (Siguiente, Detener)
+    Vue.component('botonera-ejecucion-app',{
+      template: '#botoneraEjecuccionTemplate',
+      props: ['botonera'] ,
+      methods:{
+        obtenerSiguientePaso:function(){
+          getSiguientePaso();
+        },
+        detenerEjecucion:function(){
+          detener();
+        }    
+      }
+    });
+  </script>
+</div>

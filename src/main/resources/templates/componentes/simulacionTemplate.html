@@ -9,4 +9,28 @@
                 </div>
             </div>
     </script>
+    <script type="text/javascript">
+        //Componente Panel de Simulacion
+        Vue.component('panelsimulacion-app',{
+          template: '#simulacionTemplate',
+          props: ['panel','index'],
+          computed:{
+            getPanel: function(){
+                return this.panel;
+              },
+            getBigSize: function(){
+                return "col-md-"+this.panel.size;
+              },
+          } ,
+          created: function () {
+            EventBus.$on('cambioSizePanel', function (cambios) {
+              if(cambios.index == this.index)
+                this.panel.ver=cambios.ver;
+            }.bind(this));
+            EventBus.$on('newSize', function (sizes) {
+                this.panel.size=sizes[this.index];
+            }.bind(this));
+          }  
+        });
+    </script>
 </div>

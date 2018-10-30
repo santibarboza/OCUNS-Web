@@ -10,4 +10,16 @@
             </div>
         </div>
     </script>
+    <script type="text/javascript">
+        //Componente Panel de Memoria
+        Vue.component('panelmemoria-app',{
+          template: '#memoriaPanelTemplate',
+          props: ['memorias'],
+          computed:{
+            getMemoria: function(){
+                return this.memorias;
+              }
+          }  
+        });
+    </script>
 </div>
