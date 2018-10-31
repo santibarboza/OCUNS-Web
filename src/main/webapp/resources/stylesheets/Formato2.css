@@ -144,7 +144,7 @@ font-weight: 400;
 	.reply-list .comment-box {
 		width: 320px;
 	}
-    
+
     .col-xs-12{
         padding-left: 0px;
         padding-right: 0px;
@@ -154,6 +154,10 @@ font-weight: 400;
         padding-right: 0px;
     }
     .col-xs-4{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .col-xs-5{
         padding-left: 0px;
         padding-right: 0px;
     }
