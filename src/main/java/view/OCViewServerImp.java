@@ -61,11 +61,12 @@ public class OCViewServerImp implements OCViewServer{
 		accionesActuales.add(accionFactory.crearAccionDefault("Deshabilitar_Opciones_PAP",""));
 	}
 	public List<Accion> obtenerAcciones(String id){
-		if(accionPedidoLectura!=null)
-			return accionPedidoLectura;
 		List<Accion> retornar=accionesActuales;
 		retornar.add(accionFactory.crearAccionDefault("set_ID",id));
 		accionesActuales= new ArrayList<Accion>();
+		
+		if(accionPedidoLectura!=null)
+			return accionPedidoLectura;
 		return retornar;	
 	}
 	public String pedirDialogo(String pedido){

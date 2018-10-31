@@ -4,11 +4,11 @@
         <div id="contenedorCode" class="col-xs-12" :class="getBigSize">
             <div class="panel panel-default" id="panelCode">
                 <div class="panel-heading">
-                    <h3 style="" class="panel-title col-md-8">Codigo Fuente</h3> 
-                    <a href="javascript:doClick()" title="Abrir Archivo" class="btn btn-default col-md-2 menuB">
+                    <h3 style="" class="panel-title col-md-8 col-xs-8">Codigo Fuente</h3> 
+                    <a href="javascript:doClick()" title="Abrir Archivo" class="btn btn-default col-md-2 col-xs-2 menuB">
                         <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                     </a>
-                    <button class="btn btn-default col-md-2 menuB" title="Descargar Codigo Fuente" @click="descargarFuente">
+                    <button class="btn btn-default col-md-2 col-xs-2 menuB" title="Descargar Codigo Fuente" @click="descargarFuente">
                         <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
                     </button>               
                 </div>
@@ -24,11 +24,11 @@
                           v-model="panel.value">
                         </textarea>
                         <div id="barraCompilar">
-                          <h5 class="col-md-6" id="labeldirinicio">Direccion de Inicio:</h5>
-                          <textarea id="dirInicio" class="col-md-2" rows="1" cols="2" title="Dirección de Inicio" 
+                          <h5 class="col-md-6 col-xs-6" id="labeldirinicio">Direccion de Inicio:</h5>
+                          <textarea id="dirInicio" class="col-md-2 col-xs-2" rows="1" cols="2" title="Dirección de Inicio" 
                           maxlength="2" v-model="panel.direccionInicio">
                           </textarea>
-                          <button type="button" class="btn btn-default col-md-4" 
+                          <button type="button" class="btn btn-default col-md-4 col-xs-4" 
                           id="compilar" title="Compilar Codigo Fuente" @click="Compilar">
                             Compilar
                           </button>
