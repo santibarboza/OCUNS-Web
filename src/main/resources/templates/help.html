@@ -18,15 +18,63 @@
   </head>
  <body>
     <div th:include="componentes/encabezado::navBar"></div>
-    <div class="container-fluid" id="panelIde">
-		<div class="col-md-12">		
-    		<div style="text-align: center; align-content: center; align-items: center;" class="inner cover">
-                <h1 class="cover-heading">Ayuda</h1>
-                <p class="lead">.....
-                </p>           
+      <div class="container-fluid" id="panelIde">
+            <div class="container">
+          <!-- Page Heading -->
+          <h1 style="margin-bottom: 30px;" class="my-4">Material de Ayuda
+            <small>Entorno Web OCUNS</small>
+          </h1>
+
+          <!-- Set de Intrucciones -->
+          <div class="row">
+            <div class="col-md-9">
+              <a href="">
+                <img class="img-fluid rounded mb-3 col-md-12" src="resources/images/help1.png" alt="Set de Intrucciones">
+              </a>
             </div>
-    		<div th:include="componentes/footer::footer"></div>
-        </div>
+            <div class="col-md-3">
+              <h3>Set de Intrucciones</h3>
+              <p>El lenguaje OCUNS posee un set de 16 instrucciones, codificadas por un opcode de un unico caracter hexadecimal (0-F). </p><p>Las intrucciones pueden dividirse en 3 grupos con formatos diferenciado (I, II y III). Asi como se cuenta con una variedad de operaciones (con distinta cantidad de registros necesarios) tambien se pueden reconocer varios modos de direccionamientos</p><p>En la imagen puede apreciarse el pseudocódigo que explica la semantica de cada operación.</p>
+              
+            </div>
+          </div>
+          <!-- /.row -->
+
+          <hr>
+
+          <!-- Formatos de las Intrucciones -->
+          <div class="row">
+           <div class="col-md-7">
+              <h3>Formatos de las Intrucciones</h3>
+              <p>Existen 3 formatos de intrucción en el lenguaje de la arquitectura OCUNS. El primer formato comprende los opcodes en el rango [0-7] y posee 3 campos,2 pertencientes a registros,el registro destino (RD) y registro fuente (RS) y un tercer campo que puede ser un desplazamiento codificado en complemento a 2 o un segundo registro fuente</p>
+              <p>El segundo formato comprende los opcodes en el rango [8-11] y posee 2 (tres) campos,un registros nombrados como registro destino (RD) y dirección de memoria (Constante de 1 Byte)</p>
+              <p>Por ultimo El tercer formato posee solo el registro destino (RD)</p>
+          </div>
+       <div class="col-md-5">
+              <a href="">
+                <img class="img-fluid rounded mb-3 mb-md-0 col-md-12" src="resources/images/help2.png" alt="Formatos de intruccion">
+              </a>
+            </div>
+          </div>
+          <!-- /.row -->
+
+          <hr>
+
+          <!--  -->
+          <div class="row">
+            <div class="col-md-7">
+              <a href="#">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+              </a>
+            </div>
+            <div class="col-md-5">
+              <h3>Project Three</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
+             
+            </div>
+          </div>
+      </div>
+      <div th:include="componentes/footer::footer"></div>
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     
