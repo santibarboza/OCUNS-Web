@@ -43,6 +43,9 @@ font-weight: 400;
     padding-left: 0px;
     padding-right: 0px;
 }
+.btn{
+    overflow: hidden;
+}
 
 #panelIde{
     margin-top: 60px;
