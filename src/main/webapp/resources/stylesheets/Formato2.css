@@ -27,22 +27,6 @@ font-weight: 400;
     width:60%;
 }
 
-.col-xs-12{
-    padding-left: 0px;
-    padding-right: 0px;
-}
-.col-xs-6{
-    padding-left: 0px;
-    padding-right: 0px;
-}
-.col-xs-4{
-    padding-left: 0px;
-    padding-right: 0px;
-}
-.col-xs-8{
-    padding-left: 0px;
-    padding-right: 0px;
-}
 .btn{
     overflow: hidden;
 }
@@ -160,6 +144,23 @@ font-weight: 400;
 	.reply-list .comment-box {
 		width: 320px;
 	}
+    
+    .col-xs-12{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .col-xs-6{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .col-xs-4{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .col-xs-8{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 .panel-title{
     text-align:center;
