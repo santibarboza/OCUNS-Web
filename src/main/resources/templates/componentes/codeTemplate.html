@@ -2,7 +2,7 @@
     <!--CodigoFuente-->
     <script type="text/x-template" id="codeTemplate">
         <div id="contenedorCode" class="col-xs-12" :class="getBigSize">
-            <div class="panel panel-default" id="panelCode">
+            <div class="panel panel-default col-xs-12" id="panelCode">
                 <div class="panel-heading">
                     <h3 style="" class="panel-title col-md-8 col-xs-8">Codigo Fuente</h3> 
                     <a href="javascript:doClick()" title="Abrir Archivo" class="btn btn-default col-md-2 col-xs-2 menuB">
@@ -23,8 +23,8 @@
                           placeholder="Ingrese Código Fuente..."
                           v-model="panel.value">
                         </textarea>
-                        <div id="barraCompilar">
-                          <h5 class="col-md-6 col-xs-6" id="labeldirinicio">Direccion de Inicio:</h5>
+                        <div id="barraCompilar" class="col-xs-12">
+                          <h5 class="col-md-6 col-xs-5" id="labeldirinicio">Direccion de Inicio:</h5>
                           <textarea id="dirInicio" class="col-md-2 col-xs-2" rows="1" cols="2" title="Dirección de Inicio" 
                           maxlength="2" v-model="panel.direccionInicio">
                           </textarea>
