@@ -19,7 +19,7 @@
  <body>
     <div th:include="componentes/encabezado::navBar"></div>
       <div class="container-fluid" id="panelIde">
-            <div class="container">
+          <div class="container">
           <!-- Page Heading -->
           <h1 style="margin-bottom: 30px;" class="my-4">Material de Ayuda
             <small>Entorno Web OCUNS</small>
@@ -60,19 +60,87 @@
 
           <hr>
 
-          <!--  -->
+          <!-- Seleccion de Ventanas -->
           <div class="row">
-            <div class="col-md-7">
-              <a href="#">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+            <div class="col-md-9">
+              <a href="">
+                <img class="img-fluid rounded mb-3 col-md-12" src="resources/images/help2b.png" alt="Seleccion de Ventanas">
               </a>
             </div>
-            <div class="col-md-5">
-              <h3>Project Three</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-             
+            <div class="col-md-3">
+              <h3>Seleccion de Ventanas</h3>
+              <p>Para la comodidad del usuario,el entorno web OCUNS permite seleccionar que paneles pueden permanecer visibles y cuales ocultos redimensionandose los paneles que queden visibles para aprovechar de la mejor forma el espacio disponible</p>
             </div>
           </div>
+   <!-- /.row -->
+
+          <hr>
+
+          <!-- Compilar -->
+          <div class="row">
+           <div class="col-md-4">
+              <h3>Compilar un Programa</h3>
+              <p>El entorno permite abrir programas almacenados en tu ordenador en cualquier momento, como asi tambien descargar el codigo que actualmente esta escrito en el panel de compilación.</p>
+              <p>Ademas posee la opcion de especificar la direccion de Inicio de cargado del programa en memoria, que se reprensenta con dos digitos hexadecimales</p>
+          </div>
+       <div class="col-md-8">
+              <a href="">
+                <img class="img-fluid rounded mb-3 mb-md-0 col-md-12" src="resources/images/help3.png" alt="Panel de Compilacion">
+              </a>
+            </div>
+          </div>
+          <!-- /.row --> 
+          <hr>
+
+          <!-- Codigo Compilado -->
+          <div class="row">
+            <div class="col-md-4">
+              <a href="">
+                <img class="img-fluid rounded mb-3 col-md-12" src="resources/images/help4.png" alt="Panel Compilado">
+              </a>
+            </div>
+            <div class="col-md-8">
+              <h3>Codigo Compilado</h3>
+              <p>Luego de realizar una compilación exitosa, el codigo compilado se escribira automaticamente en el panel de Codigo Compilado. A diferencia delpanel de código fuente, este no es editable pero permite la opción de descargar su contenido en un archivo.</p>
+              <p>El formato del contenido sera el siguiente: "direccion h. codigo-compilado ||traduccion-del-codigo".</p>
+              <p>El codigo puede Ejecutarse instruccion por intruccion o de corrido.</p>
+            </div>
+          </div>
+  <!-- /.row -->
+
+          <hr>
+
+          <!-- Ejecucion -->
+          <div class="row">
+           <div class="col-md-4">
+              <h3>Ejecucion</h3>
+              <p>El entorno permite ver como se modifican la memoria y los registros a medida que se ejecuta el codigo maquina correspondiente a la compilacion del programa.</p>
+              <p>Es visible enlos paneles desplegable no solo elcontenido de la memoria y los registros sino tambien datos como ultimas celdas de memoria modificadas, ultimo registro modificado, el valor del PC y el valor del IR</p>
+          </div>
+       <div class="col-md-8">
+              <a href="">
+                <img class="img-fluid rounded mb-3 mb-md-0 col-md-12" src="resources/images/help5.png" alt="Ejecucion">
+              </a>
+            </div>
+          </div>
+          <!-- /.row --> 
+          <hr>
+
+          <!-- Codigo Compilado -->
+          <div class="row">
+            <div class="col-md-8">
+              <a href="https://tinyurl.com/OCUNS-casosdePrueba">
+                <img class="img-fluid rounded mb-3 col-md-12" src="resources/images/help6.png" alt="casos de Prueba">
+              </a>
+            </div>
+            <div class="col-md-4">
+              <h3>Ejemplos de Prueba</h3>
+              <p>Para conocer mejor la sintaxis del lenguaje podes consultar los programas de prueba que dejamos a tu disposicion</p>
+              <a href="https://tinyurl.com/OCUNS-casosdePrueba" class="btn btn-lg btn-primary col-md-10">Visitar Casos de Prueba</a>
+            </div>
+          </div>
+      </div> 
+          
       </div>
       <div th:include="componentes/footer::footer"></div>
     </div>
