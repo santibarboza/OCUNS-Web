@@ -111,6 +111,12 @@ var vm=new Vue({
         this.getPanel(index).ver=ver;
         this.updateSizes();
     },
+    habilitarTodos:function(){
+        this.panelCode.ver=true;
+        this.panelCompilado.ver=true;
+        this.panelSimulacion.ver=true;
+        this.updateSizes();
+    },
     habilitarEjecucion: function(){
         this.panelCompilado.habilitaEjecucion=true;
     },
@@ -149,4 +155,3 @@ var vm=new Vue({
     }
   }
 });
-
