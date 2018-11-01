@@ -131,11 +131,11 @@ font-weight: 400;
 }
 
 @media only screen and (min-width: 768px){
-
+}
     #botoneraEjecucion2{
         display: none;
     }
-}
+
 /** =====================
  * Responsive
  ========================*/
