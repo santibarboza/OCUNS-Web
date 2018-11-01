@@ -193,12 +193,18 @@ font-weight: 400;
         width: 50%;
     }
     .botonhAdd{
-        width: 50%;
+        width: 100%;
         margin-bottom: 5px;
     }
-    .botonhome{
-        width: 50%;
+    .botonDrive{
+        width: 49%;
         padding: 20px;
+        float: inline-start;
+    }
+    .botonDrive{
+        width: 49%;
+        padding: 20px;
+        float: inline-end;
     }
 }
 
