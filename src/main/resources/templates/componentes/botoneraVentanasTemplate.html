@@ -1,21 +1,23 @@
 <div th:fragment="botoneraVentanasTemplate">
     <!--Botonera Ventanas-->
     <script type="text/x-template" id="botoneraVentanasTemplate">
-        <div id="botoneraEjecucion" class="btn-group col-xs-12 col-md-7">
-            <a href="/" class="btn btn-default col-md-6 col-xs-4" id="volver" title="Volver">
-                Volver
-            </a>
-            <select id="ventanas" class="col-md-6 selectpicker col-xs-8" 
-                title="Ventanas Habilitadas" data-selected-text-format="count"
-                multiple="multiple">
-                <option value="0">Codigo Fuente</option>
-                <option value="1">Codigo Compilado</option>
-                <option value="2">Simulacion</option>
-            </select>
-        </div>
-        <div class="btn-group col-xs-12 col-md-7" id="botoneraEjecucion2">
-            <a class="btn btn-primary col-md-6 col-xs-6" title="Panel Anterior" id="panelAnterior" href="/">&lt;&lt;- Panel Anterior</a>
-            <a class="btn btn-primary col-md-6 col-xs-6" title="Panel Siguiente" id="panelSiguiente" href="/">Panel Siguiente -&gt;&gt;</a> 
+        <div>
+            <div id="botoneraEjecucion" class="btn-group col-xs-12 col-md-7">
+                <a href="/" class="btn btn-default col-md-6 col-xs-4" id="volver" title="Volver">
+                    Volver
+                </a>
+                <select id="ventanas" class="col-md-6 selectpicker col-xs-8" 
+                    title="Ventanas Habilitadas" data-selected-text-format="count"
+                    multiple="multiple">
+                    <option value="0">Codigo Fuente</option>
+                    <option value="1">Codigo Compilado</option>
+                    <option value="2">Simulacion</option>
+                </select>
+            </div>
+            <div class="btn-group col-xs-12 col-md-7" id="botoneraEjecucion2">
+                <a class="btn btn-primary col-md-6 col-xs-6" title="Panel Anterior" id="panelAnterior" href="/">&lt;&lt;- Panel Anterior</a>
+                <a class="btn btn-primary col-md-6 col-xs-6" title="Panel Siguiente" id="panelSiguiente" href="/">Panel Siguiente -&gt;&gt;</a> 
+            </div>
         </div>
     </script>
     <!--Componente de la Botonera Ventana-->
