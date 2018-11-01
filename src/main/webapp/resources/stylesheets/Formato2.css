@@ -185,6 +185,21 @@ font-weight: 400;
     #botoneraEjecucion{
         display: none;
     }
+    .itemHome{
+        width: 100%;
+    }
+    .itemImg{
+        float: initial;
+        width: 50%;
+    }
+    .botonhAdd{
+        width: 50%;
+        margin-bottom: 5px;
+    }
+    .botonhome{
+        width: 50%;
+        padding: 20px;
+    }
 }
 
 .panel-title{
