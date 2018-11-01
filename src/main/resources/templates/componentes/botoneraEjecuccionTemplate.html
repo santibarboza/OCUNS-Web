@@ -1,7 +1,7 @@
 <div th:fragment="botoneraEjecuccionTemplate">
   <!--Botonera Ejecucion-->
   <script type="text/x-template" id="botoneraEjecuccionTemplate">
-        <div id="botoneraEjecucion1" class="btn-group col-md-5 col-xs-12">
+        <div id="botoneraEjecucion1" v-show="ver" class="btn-group col-md-5 col-xs-12">
           <button type="button" class="btn btn-default col-md-6 col-xs-6" :disabled="!botonera.habilita_PAP" title="Ejecutar Siguiente Instrucción" 
            @click="obtenerSiguientePaso" id="siguientePaso">
             Siguiente Paso
@@ -17,6 +17,11 @@
     Vue.component('botonera-ejecucion-app',{
       template: '#botoneraEjecuccionTemplate',
       props: ['botonera'] ,
+      computed:{
+        ver:function(){
+          return vm.panelSimulacion.ver;
+        }
+      },
       methods:{
         obtenerSiguientePaso:function(){
           $.ajax({
