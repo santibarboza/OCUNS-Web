@@ -2,10 +2,10 @@
     <!--CodigoCompilado-->
     <script type="text/x-template" id="compiladoTemplate">
         <div id="contenedorCompilado" class="col-xs-12" :class="getBigSize">
-            <div class="panel panel-default" id="panelCompilado">
+            <div class="panel panel-default col-xs-12" id="panelCompilado">
                <div class="panel-heading">
-                    <h3 class="panel-title col-md-10">Compilado</h3> 
-                    <button title="Descargar Codigo Compilado" class="btn btn-default col-md-2 menuB"
+                    <h3 class="panel-title col-md-10 col-xs-10">Compilado</h3> 
+                    <button title="Descargar Codigo Compilado" class="btn btn-default col-md-2 col-xs-2 menuB"
                     @click="descargarCompilado">
                         <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
                     </button>
@@ -18,11 +18,11 @@
                           readonly>     
                         </textarea>
                         <div id="barraCompilar">
-                            <select class="selectpicker col-md-8" id="tipoEjecucion">
+                            <select class="selectpicker col-md-8 col-xs-8" id="tipoEjecucion">
                                 <option>De a 1 Instrucción</option>
                                 <option>Todo el Código</option>
                             </select>   
-                            <button type="button" class="btn btn-default col-md-4" title="Ejecutar" 
+                            <button type="button" class="btn btn-default col-md-4 col-xs-4" title="Ejecutar" 
                                 :disabled="!panel.habilitaEjecucion" 
                                 @click="ejecutar" id="ejecutar">
                                 Ejecutar
