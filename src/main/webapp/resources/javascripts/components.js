@@ -150,7 +150,3 @@ var vm=new Vue({
   }
 });
 
-
-function verEjecucion(){
-  return panelSimulacion.panelSimulacion.ver;
-}
