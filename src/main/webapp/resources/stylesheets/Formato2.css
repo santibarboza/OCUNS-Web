@@ -165,6 +165,13 @@ font-weight: 400;
         padding-left: 0px;
         padding-right: 0px;
     }
+    #bodyRegistro{
+        overflow-x: auto;
+    }
+    
+    #bodyMemoria{
+        overflow-x: auto;
+    }
 }
 .panel-title{
     text-align:center;
