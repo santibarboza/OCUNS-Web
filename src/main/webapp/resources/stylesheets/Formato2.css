@@ -129,6 +129,13 @@ font-weight: 400;
     border: 0px;
     padding: 10px 20px;
 }
+
+@media only screen and (min-width: 768px){
+
+    #botoneraEjecucion2{
+        display: none;
+    }
+}
 /** =====================
  * Responsive
  ========================*/
@@ -172,7 +179,11 @@ font-weight: 400;
     #bodyMemoria{
         overflow-x: auto;
     }
+    #botoneraEjecucion{
+        display: none;
+    }
 }
+
 .panel-title{
     text-align:center;
     padding-right: 0px;
