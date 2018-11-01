@@ -96,7 +96,9 @@ $( document ).ready(function() {
   });
   document.getElementById('archivoAbierto').addEventListener('change', leerArchivo, false);
     $(window).resize(function(){
-        if($(window).width() <766)
+        if($(window).width() <766){
             vm.habilitarTodos();
+            $('#ventanas').selectpicker('selectAll');
+        }
     });
 });
