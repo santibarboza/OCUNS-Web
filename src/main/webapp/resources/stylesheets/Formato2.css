@@ -18,6 +18,9 @@ font-weight: 400;
     padding: 0px;
 }
 
+.dropbutton{
+    margin-right: 10px;
+}
 #botoneraEjecucion1{
     margin-bottom: 10px;
     float: right;
@@ -211,9 +214,6 @@ font-weight: 400;
         width: 49%;
         padding: 20px;
         float: inline-end;
-    }
-    .dropbutton{
-        margin-right: 5px;
     }
     #botoneraEjecucion1{
         position: fixed;
