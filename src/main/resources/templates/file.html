@@ -15,9 +15,10 @@
     </head>
     <body>
         <div th:include="componentes/bodyContenido::bodyContenido"></div>
+        <div th:include="componentes/modalFileTemplate::modalFileTemplate"></div>
         <script type="text/javascript">
             $( document ).ready(function() {
-                doClick();
+                $("#mostrarmodalfile").modal("show");
             });
         </script>
     </body>
