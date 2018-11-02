@@ -88,6 +88,10 @@
           el.click();
         }
       }
+      function doClick2() {
+        doClick();
+        $("#mostrarmodalfile").modal("hide");
+      }
       function compilarCodigoFuente(value,direccionInicio){
         var dataBody={"codigoFuente":value, "direccionInicio": direccionInicio};
           $.ajax({

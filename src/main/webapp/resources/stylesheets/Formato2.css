@@ -7,6 +7,7 @@ body {
   background-color: #FFF;
 
 }
+
 html{
 font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
 line-height: 1.5;
@@ -302,4 +303,7 @@ font-weight: 400;
     font-weight: 900;
     font-size: initial;
     background-color: #4062f3;;
+}
+#bodyAbrir{
+    text-align: center;
 }
