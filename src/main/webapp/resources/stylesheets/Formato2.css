@@ -212,6 +212,9 @@ font-weight: 400;
         padding: 20px;
         float: inline-end;
     }
+    .dropbutton{
+        margin-right: 5px;
+    }
     #botoneraEjecucion1{
         position: fixed;
         right: 0;
