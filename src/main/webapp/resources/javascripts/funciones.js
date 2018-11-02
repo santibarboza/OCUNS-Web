@@ -90,9 +90,11 @@ $( document ).ready(function() {
       if(e.currentTarget.id=="ventanas")
         vm.updateSizePaneles(clickedIndex,newValue);
       else{
-        vm.updateTipoEjecucion(clickedIndex);
-        console.log("Tipos de Ejecucion:"+clickedIndex+"-"+newValue); 
-      }
+        if(e.currentTarget.id=="tipoEjecucion")
+            vm.updateTipoEjecucion(clickedIndex);
+        else
+            vm.updateExample(newValue);
+    }
   });
   document.getElementById('archivoAbierto').addEventListener('change', leerArchivo, false);
     $(window).resize(function(){
