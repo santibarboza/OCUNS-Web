@@ -92,6 +92,9 @@ font-weight: 400;
     color: #959595;
 
 }
+.dropdown-menu > li > a {
+    float: left;
+}
 .link-footer nav {
 
     margin: 0 0 8px 0;
