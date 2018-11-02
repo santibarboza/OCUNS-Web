@@ -1,0 +1,6 @@
+programa:    lda R0,02    //R0<-02
+		lda R1,02   //R1<-02
+		add R2, R0, R1
+            hlt
+
+

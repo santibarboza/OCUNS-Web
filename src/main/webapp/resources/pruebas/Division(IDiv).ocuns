@@ -1,0 +1,39 @@
+	lda R0, FE
+	jg R0, fini
+//Test:....................................
+	lda R0,FF    	//R0<-FF
+	load RB, 0(R0)	//RB<-read()
+	load RC, 0(R0)	//RC<-read()
+	add RA, RF, RF	//RA<-0
+	call RD, Idiv   //llama a multiplicar con RD<-PC
+	
+	//en RA <-RB/RC
+	//en RB <-RB mod RC
+	
+	lda R0,FF		//R0<-FF
+    store RA,0(R0)	//print(RA)
+	store RB,0(R0)	//print(RB)
+    hlt				//end
+
+//........................................
+
+/*
+*	Idiv(RA,RB,RC)
+*		Si recibe en RA=0,
+*		y en RD la direccion de retorno
+*	Retorna:
+*		en RA= RB/RC
+*		en RB= RB mod RC
+*	Obsevacion:
+*		Modifica el valor de R9
+*		Cicla si RC=0
+*		Esta definido para los numeros +
+*/
+Idiv:		sub R9,RC,RB
+			jg R9,finDiv
+			inc RA
+			sub RB,RB,RC
+			jz RF,Idiv
+finDiv:		jmp RD 	
+
+fini: hlt

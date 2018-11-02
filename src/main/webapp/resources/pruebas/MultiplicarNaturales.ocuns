@@ -1,0 +1,32 @@
+
+//Test:....................................
+	lda R0,FF    	//R0<-FF
+	load RB, 0(R0)	//RB<-read()
+	load RC, 0(R0)	//RC<-read()
+	add RA, RF, RF	//RA<-0
+	call RD, multiplicar   //llama a multiplicar con RD<-PC
+	
+	//en RA <-RB*RC
+	
+	lda R0,FF		//R0<-FF
+    store RA,0(R0)	//print(RA)
+    hlt				//end
+
+//........................................
+
+/*
+*	Multiplicar(RA,RB,RC)
+*		Si recibe en RA=0,
+*		y en RD la direccion de retorno
+*	Retorna: 
+*		en RA= RB*RC
+*	Observacion:
+*		Esta definido para los numeros +
+*/
+multiplicar:	jz RB,finrutina
+		add RA,RA,RC
+		dec RB
+		jg RB, multiplicar
+finrutina:  	jmp RD 
+
+

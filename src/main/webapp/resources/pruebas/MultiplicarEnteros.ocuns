@@ -1,0 +1,75 @@
+
+///Test:....................................
+	lda R0,FF    	//R0<-FF
+	load RB, 0(R0)	//RB<-read()
+	load RC, 0(R0)	//RC<-read()
+	call RD, multz   //llama a multiplicar con RD<-PC
+	
+	//en RA <-RB*RC
+	
+	lda R0,FF		//R0<-FF
+    store RA,0(R0)	//print(RA)
+    hlt				//end
+//........................................
+
+
+/*
+*	MultZ(RA,RB,RC)
+*		Recive 2 enteros en RB y RC y en RD la direccion de retorno
+*	Retorna: 
+*		en RA= RB*RC
+*	Observacion:
+*		Modifica RE
+*/
+multz:	add RE,RF,RD
+	jg RB, r_pos
+
+	//RB tiene un valor negativo
+r_neg:	add RA,RB,RF
+	call RD,comp2	//complemento rb
+	add RB, RA,RF
+	
+	add RA, RF, RF	//RA<-0
+	call RD, multiplicar   //llama a multiplicar con RD<-PC
+
+	//en RA <-((-RB)*RC)
+	call RD,comp2
+	jmp RE
+
+r_pos:	add RA, RF, RF	//RA<-0
+	call RD, multiplicar   //llama a multiplicar con RD<-PC
+	jmp RE				//end
+
+//......................................................................
+
+
+/*
+*	Multiplicar(RA,RB,RC)
+*		Si recibe en RA=0,
+*		y en RD la direccion de retorno
+*	Retorna: 
+*		en RA= RB*RC
+*	Observacion:
+*		Esta definido para los numeros +
+*/
+multiplicar:	jz RB,finrutina
+		add RA,RA,RC
+		dec RB
+		jg RB, multiplicar
+finrutina:  	jmp RD 
+
+//....................................................
+
+/*
+*	Comp2(RA,RB)
+*		recibe en RD la direccion de retorno
+*	Retorna: 
+*		en RA= Complemento2(RA)
+*	Observacion:
+*		Modifica RB
+*/
+comp2:	lda RB,FF	//Cargo en RB<-FF
+	xor RA, RA,RB	//RA<-comp1(RA)
+	inc RA		//RA<-comp2(RA)
+	jmp RD
+//......................................................

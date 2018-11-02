@@ -1,0 +1,6 @@
+lda R0, FF
+load R1, 0(R0)
+load R2, 0(R0)
+add R3,R2,R1
+store R3, 0(R0)
+hlt

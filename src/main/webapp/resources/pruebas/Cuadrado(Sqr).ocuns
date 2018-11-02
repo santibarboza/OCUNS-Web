@@ -1,0 +1,12 @@
+lda R0, FF
+load R1, 0(R0)
+add R2,R1,RF
+lda R3,00
+
+bucle: jz R1, mostrar
+add R3,R3,R2
+dec R1
+jg R1, bucle
+
+mostrar: store R3, 0(R0)
+hlt
