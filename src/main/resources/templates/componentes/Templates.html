@@ -1,0 +1,18 @@
+ <div th:fragment="Templates">
+        <!-- Templates-->
+        <!--Botnera Ejecucion--><div th:include="componentes/botoneraEjecuccionTemplate::botoneraEjecuccionTemplate"></div>    
+        <!--Botonera Ventanas--><div th:include="componentes/botoneraVentanasTemplate::botoneraVentanasTemplate"></div>   
+        <!--CodigoFuente-->     <div th:include="componentes/codeTemplate::codeTemplate"></div>
+        <!--CodigoCompilado-->  <div th:include="componentes/compiladoTemplate::compiladoTemplate"></div>
+        <!--Panel Simulacion--> <div th:include="componentes/simulacionTemplate::simulacionTemplate"></div>
+        <!--Panel deRegistros--><div th:include="componentes/registroPanelTemplate::registroPanelTemplate"></div>
+        <!--Tabla Registros-->  <div th:include="componentes/registroTableTemplate::registroTableTemplate"></div>
+        <!--Registro-->         <div th:include="componentes/registroTemplate::registroTemplate"></div>
+        <!--Panel de Memoria --><div th:include="componentes/memoriaPanelTemplate::memoriaPanelTemplate"></div>
+        <!--Tabla Memoria-->    <div th:include="componentes/memoriaTableTemplate::memoriaTableTemplate"></div>
+        <!--Memoria-->          <div th:include="componentes/memoriaTemplate::memoriaTemplate"></div>
+        <!--Panel de Logs-->    <div th:include="componentes/logsTemplate::logsTemplate"></div>
+        <!--Heading-->          <div th:include="componentes/headingTemplate::headingTemplate"></div>
+        <!--Boton Desplegar --> <div th:include="componentes/botonDesplegarTemplate::botonDesplegarTemplate"></div>
+        <!--Modal de Mensaje--> <div th:include="componentes/modalTemplate::modalTemplate"></div>  
+</div>
