@@ -19,27 +19,21 @@
       props: ['botonera'] ,
       computed:{
           disableSiguiente: function(){
-              return !(this.botonera.habilita_PAP && this.botonera.asincr);
+              return !(this.botonera.habilita_PAP);
           }
       },
       methods:{
         obtenerSiguientePaso:function(){
-          if(this.botonera.asincr){
-            this.botonera.asincr=false;
             $.ajax({
               method: "GET",
               url: "/siguientePaso?id="+vm.id, 
               success: function(data,textStatus){
-               console.log("aa"+this.botonera.sincr);
                interpretarData(data);
-               this.asincr=true;
-               console.log("bb"+this.botonera.asincr);
               },
               error:function(textStatus,errorThrown){
                 console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
               }
             });
-          }
         },
         detenerEjecucion:function(){
           $.ajax({

@@ -89,7 +89,6 @@
                 url: "/iniciarEjecucion?id="+vm.id, 
                 success: function(data,textStatus){
                  interpretarData(data);
-                 vm.botoneraEjecucion.asincr=true;
                 },
                 error:function(textStatus,errorThrown){
                   console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
