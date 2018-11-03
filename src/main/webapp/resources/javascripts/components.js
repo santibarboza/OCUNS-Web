@@ -49,6 +49,7 @@ var vm=new Vue({
         mensaje:"Mensaje Default"
       },
       botoneraEjecucion:{
+        asincr:true;
         ejecutando:false,
         habilita_PAP:false
       },

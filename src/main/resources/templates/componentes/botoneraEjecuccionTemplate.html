@@ -17,27 +17,23 @@
     Vue.component('botonera-ejecucion-app',{
       template: '#botoneraEjecuccionTemplate',
       props: ['botonera'] ,
-      data:function(){
-          return {
-              asincr:true
-          };
-      },
       computed:{
           disableSiguiente: function(){
-              return !(this.botonera.habilita_PAP && this.asincr);
+              return !(this.botonera.habilita_PAP && this.botonera.asincr);
           }
       },
       methods:{
         obtenerSiguientePaso:function(){
-          if(this.asincr){
-            this.asincr=false;
+          if(this.botonera.asincr){
+            this.botonera.asincr=false;
             $.ajax({
               method: "GET",
               url: "/siguientePaso?id="+vm.id, 
               success: function(data,textStatus){
+               console.log("aa"+this.botonera.sincr);
                interpretarData(data);
                this.asincr=true;
-               console.log("aa"+this.asincr);
+               console.log("bb"+this.botonera.asincr);
               },
               error:function(textStatus,errorThrown){
                 console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
