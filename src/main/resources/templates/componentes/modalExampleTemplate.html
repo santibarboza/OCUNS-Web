@@ -1,7 +1,7 @@
 <div th:fragment="modalExampleTemplate">
     <!--Modal de Example-->
-    <script type="text/x-template" id="modalExampleTemplate">
-        <div class="modal fade in" id="mostrarmodalexample" tabindex="-1" role="dialog" 
+    <script type="text/x-template" id="modalExamplesTemplate">
+        <div class="modal fade" id="mostrarmodalexample" tabindex="-1" role="dialog" 
             aria-labelledby="basicModal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -34,7 +34,7 @@
     <!--Componente del Modal Example-->
     <script type="text/javascript">
         Vue.component('modal-example-app',{
-            template: '#modalExampleTemplate',
+            template: '#modalExamplesTemplate',
             methods:{
                 abrirExample: function(){
                     $.ajax({
