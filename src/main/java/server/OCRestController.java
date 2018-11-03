@@ -115,33 +115,4 @@ public class OCRestController {
     private List<Accion> obtenerAccionesRealizadas(){
         return view.obtenerAcciones(idUsuario);
     }
-
-
-    @RequestMapping("/test1")
-    public List<Accion> test1(@RequestParam(value="id", defaultValue="111") String id) {
-        OCPresenter presenter = OCPresenterServerModule.getInstance().startApplication(id);
-        OCViewServer view=OCPresenterServerModule.getInstance().getOCView();
-        presenter.updatePCView("PCViejo");
-        presenter.updatePCView("PCNuevo");
-        presenter.updateLogs("LogNuevo");
-        return obtenerAccionesRealizadas();
-    }
-    @PostMapping("/test2")
-    public BodyCompilado test2(@RequestBody BodyCompilado body) {
-        return body;
-    }
-
-    @RequestMapping("/test3")
-    public BodyCompilado test3(@RequestParam(value="id", defaultValue="111") String id) {
-        return new BodyCompilado("0E", "Codigo Milagroso");
-    }
-
-    @PostMapping("/test4")
-    public BodyCompilado test4(@ModelAttribute BodyCompilado body) {
-        return body;
-    }
-    @PostMapping("/test5")
-    public String test5(@RequestBody String body) {
-        return body;
-    }
 }
