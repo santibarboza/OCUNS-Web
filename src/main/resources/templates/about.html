@@ -17,7 +17,7 @@
 
   </head>
  <body>
-    <div th:include="componentes/encabezado::navBar"></div>
+    <div th:include="fragmentos/encabezado::navBar"></div>
 
     <div class="container-fluid" id="panelIde">
 		<div class="col-md-12">
@@ -27,10 +27,10 @@
             <p class="lead">Aca deberia insertar una descripción de mi, asi como tambien deberia poner mis contactos, es algo que voy a hacer al final. No deberia olvidarme de escribir esta seccion, dado que si queda este texto seria muy gracioso y le quitaria toda la seriedad a esta pagina. 
             </p>           
             </div>
-            <div th:include="componentes/footer::footer"></div>
         </div>
     </div>
-    
+    <div th:include="fragmentos/footer::footer"></div>
+ 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     

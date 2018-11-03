@@ -1,6 +1,6 @@
  <div th:fragment="bodyContenido">
-        <div th:include="componentes/encabezado::navBar"></div>
-        <div th:include="componentes/archivoAbierto::archivoAbierto"></div>
+        <div th:include="fragmentos/encabezado::navBar"></div>
+        <div th:include="fragmentos/archivoAbierto::archivoAbierto"></div>
         <div class="container-fluid" id="panelIde">
             <modal-example-app></modal-example-app>
     		<div class= "col-md-12">
@@ -14,10 +14,10 @@
                 <panelsimulacion-app :panel="panelSimulacion" :index="2" v-if="panelSimulacion.ver"></panelsimulacion-app>
             </div>
     	</div> 
-        <div th:include="componentes/footer::footer"></div>
+        <div th:include="fragmentos/footer::footer"></div>
 
-        <!-- FuncionesJS-->   <div th:include="componentes/FuncionesJS::FuncionesJS"></div>
-        <!-- Templates-->   <div th:include="componentes/Templates::Templates"></div>
+        <!-- FuncionesJS-->   <div th:include="fragmentos/FuncionesJS::FuncionesJS"></div>
+        <!-- Templates-->   <div th:include="fragmentos/Templates::Templates"></div>
         
         <!--Funciones Vue--> 
         <script src="/resources/javascripts/funciones.js" type="text/javascript"></script>

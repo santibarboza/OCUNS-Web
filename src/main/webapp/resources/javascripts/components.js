@@ -62,7 +62,6 @@ var vm=new Vue({
         [8,4,0],  //6- Panel Code y Panel Compilado
         [4,3,5]   //7- Los 3 Paneles
       ],
-      example:"Cuadrado(Sqr).ocuns",
       id:"noID",
       pc:0,
       ir:0,
@@ -126,10 +125,6 @@ var vm=new Vue({
     },
     updateTipoEjecucion:function(index){
       this.panelCompilado.tipoEjecucion=index;
-    },
-    updateExample:function(newValue){
-      console.log(newValue);
-      this.example=newValue;
     },
     setearEjecutando:function(cond){
       this.botoneraEjecucion.ejecutando=cond;

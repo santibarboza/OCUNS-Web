@@ -14,8 +14,8 @@
         <link  id="cssArchivo" rel="stylesheet" type="text/css" href = "/resources/stylesheets/Formato2.css" />
     </head>
     <body>
-        <div th:include="componentes/bodyContenido::bodyContenido"></div>
-        <div th:include="componentes/modalFileTemplate::modalFileTemplate"></div>
+        <div th:include="fragmentos/bodyContenido::bodyContenido"></div>
+        <div th:include="fragmentos/modalFileTemplate::modalFileTemplate"></div>
         <script type="text/javascript">
             $( document ).ready(function() {
                 $("#mostrarmodalfile").modal("show");

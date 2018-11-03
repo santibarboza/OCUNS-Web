@@ -92,8 +92,6 @@ $( document ).ready(function() {
       else{
         if(e.currentTarget.id=="tipoEjecucion")
             vm.updateTipoEjecucion(clickedIndex);
-        else
-            vm.updateExample(newValue);
     }
   });
   document.getElementById('archivoAbierto').addEventListener('change', leerArchivo, false);

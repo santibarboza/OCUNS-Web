@@ -2,8 +2,8 @@
   <!--Botonera Ejecucion-->
   <script type="text/x-template" id="botoneraEjecuccionTemplate">
         <div id="botoneraEjecucion1" class="btn-group col-md-5 col-xs-12">
-          <button type="button" class="btn btn-default col-md-6 col-xs-6" :disabled="!botonera.habilita_PAP" title="Ejecutar Siguiente Instrucción" 
-           @click="obtenerSiguientePaso" id="siguientePaso">
+          <button type="button" class="btn btn-default col-md-6 col-xs-6" :disabled="disableSiguiente" 
+          title="Ejecutar Siguiente Instrucción"  @click="obtenerSiguientePaso" id="siguientePaso">
             Siguiente Paso
           </button>
           <button type="button" class="btn btn-default col-md-6 col-xs-6" :disabled="!botonera.ejecutando" title="Detener Ejecución" 
@@ -17,18 +17,31 @@
     Vue.component('botonera-ejecucion-app',{
       template: '#botoneraEjecuccionTemplate',
       props: ['botonera'] ,
+      data:function(){
+          return {
+              asincr:true
+          }
+      },
+      computed:{
+          disableSiguiente: function(){
+              return !(this.botonera.habilita_PAP && this.asincr);
+      },
       methods:{
         obtenerSiguientePaso:function(){
-          $.ajax({
-            method: "GET",
-            url: "/siguientePaso?id="+vm.id, 
-            success: function(data,textStatus){
-             interpretarData(data);
-            },
-            error:function(textStatus,errorThrown){
-              console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
-            }
-          });
+          if(this.asincr){
+            this.asincr=false;
+            $.ajax({
+              method: "GET",
+              url: "/siguientePaso?id="+vm.id, 
+              success: function(data,textStatus){
+               interpretarData(data);
+               this.asincr;
+              },
+              error:function(textStatus,errorThrown){
+                console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
+              }
+            });
+          }
         },
         detenerEjecucion:function(){
           $.ajax({
