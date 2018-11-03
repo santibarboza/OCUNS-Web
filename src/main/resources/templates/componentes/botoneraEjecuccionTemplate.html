@@ -37,6 +37,7 @@
               success: function(data,textStatus){
                interpretarData(data);
                this.asincr=true;
+               console.log("aa"+this.asincr);
               },
               error:function(textStatus,errorThrown){
                 console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
