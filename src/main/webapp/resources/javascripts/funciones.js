@@ -1,5 +1,5 @@
 var salto="---------------------------------------------";
-
+var leyendo=false;
 function interpretarData(data){
     $.each(data, function( index, accion ) {
         switch (accion.codigoAccion) {
@@ -47,17 +47,21 @@ function interpretarData(data){
 }
 
 function leerUsuario(texto){
-    var usuario=prompt(texto);
-    $.ajax({
-        method: "GET",
-        url: "/setLectura?id="+vm.id+"&leer="+usuario, 
-        success: function(data,textStatus){
-         interpretarData(data);
-        },
-        error:function(textStatus,errorThrown){
-          console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
-        }
-      });
+    if(!leyendo){
+        leyendo=true;
+        var usuario=prompt(texto);
+        $.ajax({
+            method: "GET",
+            url: "/setLectura?id="+vm.id+"&leer="+usuario, 
+            success: function(data,textStatus){
+                leyendo=false;
+                interpretarData(data);
+            },
+            error:function(textStatus,errorThrown){
+              console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
+            }
+        });
+    }
 }
 function descargarArchivo(contenidoEnBlob, nombreArchivo) {
     var reader = new FileReader();
