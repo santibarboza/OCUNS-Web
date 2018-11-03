@@ -150,10 +150,15 @@ font-weight: 400;
     .colDerecha{
         float:right;
     }
+    #examp{
+        float: inherit; 
+        width: 45%;
+    }
 }
     #botoneraEjecucion2{
         display: none;
     }
+
 
 /** =====================
  * Responsive
@@ -232,7 +237,6 @@ font-weight: 400;
         border-width: 1px 0 0;
     }
 }
-
 .panel-title{
     text-align:center;
     padding-right: 0px;
@@ -322,4 +326,8 @@ font-weight: 400;
 }
 .menuCodeItem{
     margin-right: 10px;
+}
+#examp2{
+    float: inherit; 
+    margin-top: 5px; 
 }
