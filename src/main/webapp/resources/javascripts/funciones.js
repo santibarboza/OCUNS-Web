@@ -104,3 +104,25 @@ $( document ).ready(function() {
         }
     });
 });
+
+  function leerArchivo(e) {
+    var archivo = e.target.files[0];
+    if (archivo) {
+      var lector = new FileReader();
+      lector.onload = function(e) {
+        var contenido = e.target.result;
+        vm.panelCode.value=contenido;
+      };
+      lector.readAsText(archivo);
+    }
+  }
+  function doClick() {
+    var el = document.getElementById("archivoAbierto");
+    if (el) {
+      el.click();
+    }
+  }
+  function doClick2() {
+    doClick();
+    $("#mostrarmodalfile").modal("hide");
+  }

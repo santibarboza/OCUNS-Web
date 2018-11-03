@@ -1,7 +1,7 @@
  <div th:fragment="bodyContenido">
         <div th:include="componentes/encabezado::navBar"></div>
         <div th:include="componentes/archivoAbierto::archivoAbierto"></div>
-        <div th:include="componentes/modalExampleTemplate::modalExampleTemplate"></div>
+        <modal-example-app></modal-example-app>
         <div class="container-fluid" id="panelIde">
     		<div class= "col-md-12">
                 <modal-mensaje-app :modal="modal"></modal-mensaje-app>

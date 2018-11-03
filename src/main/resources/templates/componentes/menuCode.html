@@ -1,0 +1,52 @@
+<div th:fragment="menuCode">
+  <!--Menu Code-->
+  <script type="text/x-template" id="menuCodeTemplate">    
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle col-md-2 col-xs-2 menuB" 
+        type="button" title="Opciones del Codigo Fuente" id="dropdownMenu1" 
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <span class=" glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-right col-md-12 col-xs-11" aria-labelledby="dropdownMenu1">
+        <li class="dropdown-header">Opciones del Codigo Fuente</li>
+        <li><a class="btn" title="Crear Archivo Nuevo" @click="newFile">
+          <span class="glyphicon glyphicon-plus menuCodeItem" aria-hidden="true"></span>
+          Crear Nuevo Archivo
+        </a></li>
+        <li><a href="javascript:doClick()" class="btn" title="Abrir Archivo">
+          <span class="glyphicon glyphicon-folder-open menuCodeItem" aria-hidden="true"></span>
+          Abrir Archivo
+        </a></li>
+        <li><a class="btn" title="Importar Archivo desde Google Drive">
+            <span class="glyphicon glyphicon-hdd menuCodeItem" aria-hidden="true"></span>
+            Importar desde Google Drive
+        </a></li>
+        <li><a hclass="btn" @click="cargarPrueba" title="Cargar Ejemplo de Prueba">
+          <span class="glyphicon glyphicon-briefcase menuCodeItem"  aria-hidden="true"></span>
+          Cargar Ejemplo de Prueba</a></li>
+        <li><a class="btn" @click="descargarFuente" title="Descargar Codigo Fuente">
+          <span class="glyphicon glyphicon-save menuCodeItem" aria-hidden="true" ></span>
+          Descargar Codigo Fuente
+        </a></li>
+      </ul>
+    </div>
+  </script>
+  <!--Componente del MenuCode-->
+    <script type="text/javascript">
+        Vue.component('menu-code-app',{
+            template: '#menuCodeTemplate',
+            props: ['panel'] ,
+            methods:{
+              descargarFuente:function(){
+                descargarArchivo(generarTexto(this.panel.value), 'archivo.ocuns');
+              },
+              cargarPrueba:function(){
+                $("#mostrarmodalexample").modal("show");   
+              }
+              newFile:function(){
+                this.panel.value="";
+              }              
+            }
+        });
+    </script> 
+</div>

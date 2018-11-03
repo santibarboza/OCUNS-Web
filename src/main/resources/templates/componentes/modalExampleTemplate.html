@@ -1,32 +1,55 @@
 <div th:fragment="modalExampleTemplate">
-    <!--Modal de Mensaje-->
-    <div class="modal fade in" id="mostrarmodalexample" tabindex="-1" role="dialog" 
-        aria-labelledby="basicModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body" id="bodyExample">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                    <h1>Cargar Ejemplo de Prueba</h1>
-                    <p>La pagina posee varios casos de prueba para probar en el entorno. Para poder continuar, seleccione el ejemplo que desea probar:</p>
-                    <select class="col-md-12 selectpicker col-xs-12" id="example" >
-                        <option value="Cuadrado(Sqr).ocuns">Cuadrado(Sqr).ocuns</option>
-                        <option value="Division(IDiv).ocuns">Division(IDiv).ocuns</option>
-                        <option value="Factorial.ocuns">Factorial.ocuns</option>
-                        <option value="MultiplicarEnteros.ocuns">MultiplicarEnteros.ocuns</option>
-                        <option value="MultiplicarNaturales.ocuns">MultiplicarNaturales.ocuns</option>
-                        <option value="Suma(Add).ocuns">Suma(Add).ocuns</option>
-                        <option value="SumaEnteros(Add).ocuns">SumaEnteros(Add).ocuns</option>
-                    </select>  
-                </div>
-                <div class="modal-footer">
-                    <a  title="Abrir Archivo" class="btn btn-primary col-md-6 col-xs-6">Cargar Ejemplo
-                    </a>
-                    <a data-dismiss="modal" class="btn btn-danger col-md-5 col-xs-5">Cancelar
-                    </a>
+    <!--Modal de Example-->
+    <script type="text/x-template" id="modalExampleTemplate">
+        <div class="modal fade in" id="mostrarmodalexample" tabindex="-1" role="dialog" 
+            aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body" id="bodyExample">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h1>Cargar Ejemplo de Prueba</h1>
+                        <p>La pagina posee varios casos de prueba para probar en el entorno. Para poder continuar, seleccione el ejemplo que desea probar:</p>
+                        <select class="col-md-12 selectpicker col-xs-12" id="example" >
+                            <option value="Cuadrado(Sqr).ocuns">Cuadrado(Sqr).ocuns</option>
+                            <option value="Division(IDiv).ocuns">Division(IDiv).ocuns</option>
+                            <option value="Factorial.ocuns">Factorial.ocuns</option>
+                            <option value="MultiplicarEnteros.ocuns">MultiplicarEnteros.ocuns</option>
+                            <option value="MultiplicarNaturales.ocuns">MultiplicarNaturales.ocuns</option>
+                            <option value="Suma(Add).ocuns">Suma(Add).ocuns</option>
+                            <option value="SumaEnteros(Add).ocuns">SumaEnteros(Add).ocuns</option>
+                        </select>  
+                    </div>
+                    <div class="modal-footer">
+                        <a  title="Cargar Ejemplo" @click="abrirExample" class="btn btn-primary col-md-6 col-xs-6">Cargar Ejemplo
+                        </a>
+                        <a data-dismiss="modal" class="btn btn-danger col-md-5 col-xs-5">Cancelar
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> 
+    </script>
+    <!--Componente del Modal Example-->
+    <script type="text/javascript">
+        Vue.component('modal-example-app',{
+            template: '#modalExampleTemplate',
+            methods:{
+                abrirExample: function(){
+                    $.ajax({
+                      method: "GET",
+                      url: "/resources/pruebas/"+ example.value;
+                      success: function(data,textStatus){
+                        vm.panelCode.value=data;
+                        $("#mostrarmodalexample").modal("hide");                         
+                      },
+                      error:function(textStatus,errorThrown){
+                        console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
+                      }
+                    });
+                }
+            }
+        });
+    </script> 
 </div>

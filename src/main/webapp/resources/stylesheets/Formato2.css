@@ -317,3 +317,9 @@ font-weight: 400;
 #bodyAbrir{
     text-align: center;
 }
+.dropdown-menu-right{
+    margin-top: 23px;
+}
+.menuCodeItem{
+    margin-right: 10px;
+}

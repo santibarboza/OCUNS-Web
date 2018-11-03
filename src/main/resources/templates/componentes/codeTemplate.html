@@ -5,42 +5,12 @@
             <div class="panel panel-default" id="panelCode">
                 <div class="panel-heading">
                   <h3 class="panel-title col-md-10 col-xs-10">Codigo Fuente</h3>  
-                  <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle col-md-2 col-xs-2 menuB" type="button" title="Opciones del Codigo Fuente" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <span class=" glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                    </button>
-                    <ul style="margin-top: 23px;" class="dropdown-menu dropdown-menu-right col-md-12 col-xs-11" aria-labelledby="dropdownMenu1">
-                      <li class="dropdown-header">Opciones del Codigo Fuente</li>
-                      <li><a class="btn" title="Crear Archivo Nuevo" @click="newFile">
-                        <span style="margin-right: 10px;" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        Crear Nuevo Archivo
-                      </a></li>
-                      <li><a href="javascript:doClick()" class="btn" title="Abrir Archivo">
-                        <span style="margin-right: 10px;"class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-                        Abrir Archivo
-                      </a></li>
-                      <li><a class="btn" title="Importar Archivo desde Google Drive">
-                          <span style="margin-right: 10px;" class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
-                          Importar desde Google Drive
-                      </a></li>
-                      <li><a hclass="btn" title="Cargar Ejemplo de Prueba">
-                        <span class="glyphicon glyphicon-briefcase" style="margin-right: 10px;" aria-hidden="true"></span>
-                        Cargar Ejemplo de Prueba</a></li>
-                      <li><a class="btn" @click="descargarFuente">
-                        <span class="glyphicon glyphicon-save" style="margin-right: 10px;" aria-hidden="true" title="Descargar Codigo Fuente"></span>
-                        Descargar Codigo Fuente
-                      </a></li>
-                    </ul>
-                  </div>
+                  <menu-code-app :panel="getPanel"></menu-code-app>
                 </div>
                 <div class="panel-body">
                     <form role="form">
-                        <textarea id="sourceCode"
-                          class="form-control source-code"
-                          style="margin-bottom:5px;"
-                          rows="20"
-                          tab-support
-                          select-line
+                        <textarea id="sourceCode" class="form-control source-code"
+                          style="margin-bottom:5px;" rows="20" tab-support select-line
                           placeholder="Ingrese Código Fuente..."
                           v-model="panel.value">
                         </textarea>
@@ -85,37 +55,9 @@
         methods:{
           Compilar:function(){
             compilarCodigoFuente(this.panel.value,this.panel.direccionInicio);
-          },
-          descargarFuente:function(){
-            descargarArchivo(generarTexto(this.panel.value), 'archivo.ocuns');
-          },
-          newFile:function(){
-            this.panel.value="";
           }
         }      
       });
-      function leerArchivo(e) {
-        var archivo = e.target.files[0];
-        if (!archivo) {
-          return;
-        }
-        var lector = new FileReader();
-        lector.onload = function(e) {
-          var contenido = e.target.result;
-          vm.panelCode.value=contenido;
-        };
-        lector.readAsText(archivo);
-      }
-      function doClick() {
-        var el = document.getElementById("archivoAbierto");
-        if (el) {
-          el.click();
-        }
-      }
-      function doClick2() {
-        doClick();
-        $("#mostrarmodalfile").modal("hide");
-      }
       function compilarCodigoFuente(value,direccionInicio){
         var dataBody={"codigoFuente":value, "direccionInicio": direccionInicio};
           $.ajax({
