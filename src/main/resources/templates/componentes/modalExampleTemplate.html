@@ -39,7 +39,7 @@
                 abrirExample: function(){
                     $.ajax({
                       method: "GET",
-                      url: "/resources/pruebas/"+ example.value;
+                      url: "/resources/pruebas/"+ example.value,
                       success: function(data,textStatus){
                         vm.panelCode.value=data;
                         $("#mostrarmodalexample").modal("hide");                         
