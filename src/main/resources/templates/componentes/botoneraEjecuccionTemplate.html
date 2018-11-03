@@ -20,11 +20,12 @@
       data:function(){
           return {
               asincr:true
-          }
+          };
       },
       computed:{
           disableSiguiente: function(){
               return !(this.botonera.habilita_PAP && this.asincr);
+          }
       },
       methods:{
         obtenerSiguientePaso:function(){
