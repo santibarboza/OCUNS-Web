@@ -36,7 +36,7 @@
               url: "/siguientePaso?id="+vm.id, 
               success: function(data,textStatus){
                interpretarData(data);
-               this.asincr;
+               this.asincr=true;
               },
               error:function(textStatus,errorThrown){
                 console.log("Error "+errorThrown+": "+JSON.stringify(textStatus));
