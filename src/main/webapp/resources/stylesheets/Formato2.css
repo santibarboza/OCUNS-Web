@@ -21,6 +21,9 @@ font-weight: 400;
 .menuB{
     padding: 0px;
 }
+#codigoCompilado{
+    font-size: 14pt;
+}
 
 .dropbutton{
     margin-right: 10px;
