@@ -99,7 +99,7 @@ public class AnalizadorLexicoImpl implements AnalizadorLexico {
 		return digitoHexa(indexLine)&& digitoHexa(indexLine+1);
 	}
 	private boolean esLetra(){
-		char caracterActual= lineaLeida.charAt(indexLine);
+		char caracterActual= caracterActual();
 		return (caracterActual>='A' && caracterActual<='Z')||(caracterActual>='a' && caracterActual<='z');
 	}
 	private boolean digitoHexa(int indexLine){
@@ -207,7 +207,7 @@ public class AnalizadorLexicoImpl implements AnalizadorLexico {
 		return indexLine<lineaLeida.length() && (esLetra()||esDigito()|| esGuionBajo()); 
 	}
 	private boolean esGuionBajo() {
-		return lineaLeida.lastIndexOf(indexLine)=='_';
+		return caracterActual()=='_';
 	}
 		private Token findeArchivo(){
 		archivo.Close();

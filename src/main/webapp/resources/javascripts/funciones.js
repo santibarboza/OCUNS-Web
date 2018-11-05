@@ -89,6 +89,7 @@ function generarTexto(texto) {
 //Configuracion de Seleccion de Ventanas
 $( document ).ready(function() {
   $('#ventanas').selectpicker('selectAll');
+  $(".lined").linedtextarea({selectedLine: 1});
   $("select").on("changed.bs.select", 
     function(e, clickedIndex, newValue, oldValue) {
       if(e.currentTarget.id=="ventanas")
