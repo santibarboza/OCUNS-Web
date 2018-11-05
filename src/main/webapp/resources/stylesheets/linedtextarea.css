@@ -20,10 +20,6 @@
  *
  */
 
-.linedwrap {
-	border: 1px solid #c0c0c0;
-	padding: 3px;
-}
 
 .linedtextarea {
 	padding: 0px;
@@ -37,14 +33,17 @@
 }
 
 .linedtextarea textarea {
-	padding-right:0.3em;
 	padding-top:0.3em;
-	border: 0;
+	color: #555;
+background-color: #FFF;
+background-image: none;
+border: 1px solid #CCC;
+border-radius: 4px;
 }
 
 .linedwrap .lines {
 	margin-top: 0px;
-	width: 50px;
+	width: 30px;
 	float: left;
 	overflow: hidden;
 	border-right: 1px solid #c0c0c0;
@@ -61,8 +60,4 @@
 	padding-top: 0.0em;
 	text-align: right;
 	white-space: nowrap;
-}
-
-.linedwrap .codelines .lineselect {
-	color: red;
 }
