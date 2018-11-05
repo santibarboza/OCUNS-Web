@@ -27,7 +27,7 @@
 }
 
 .linedtextarea textarea, .linedwrap .codelines .lineno {
-	font-size: 15pt;
+	font-size: 11pt;
 	font-family: monospace;
 	line-height: normal !important;
 }
@@ -49,7 +49,7 @@ border-radius: 4px;
 }
 
 .linedwrap .codelines {
-	padding-top: 9px;
+	padding-top: 5px;
 }
 
 .linedwrap .codelines .lineno {
