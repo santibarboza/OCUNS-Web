@@ -3,7 +3,7 @@
 	load RB, 0(R0)	//RB<-read()
 	load RC, 0(R0)	//RC<-read()
 	call RD, multz   //llama a multiplicar con RD<-PC
-	
+
 	//en RA <-RB*RC
 	
 	lda R0,FF		//R0<-FF
