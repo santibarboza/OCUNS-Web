@@ -4,11 +4,11 @@
 		http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
-    <display-name>Spring MVC Static Resources</display-name>
+    <display-name>Servidor Ocuns Spring para Recursos Estaticos</display-name>
 
     <!-- For web context -->
     <servlet>
-        <servlet-name>hello-dispatcher</servlet-name>
+        <servlet-name>ocuns-estatico</servlet-name>
         <servlet-class>
             org.springframework.web.servlet.DispatcherServlet
         </servlet-class>
@@ -20,7 +20,7 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>hello-dispatcher</servlet-name>
+        <servlet-name>ocuns-estatico</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
  
