@@ -66,10 +66,10 @@
 
 			/* Wrap the text area in the elements we need */
 			textarea.wrap("<div class='linedtextarea'></div>");
-			var linedTextAreaDiv	= textarea.parent().wrap("<div class='linedwrap' style='width:" + originalTextAreaWidth + "px'></div>");
+			var linedTextAreaDiv	= textarea.parent().wrap("<div class='linedwrap' ></div>");
 			var linedWrapDiv 			= linedTextAreaDiv.parent();
 			
-			linedWrapDiv.prepend("<div class='lines' style='width:50px'></div>");
+			linedWrapDiv.prepend("<div class='lines'></div>");
 			
 			var linesDiv	= linedWrapDiv.find(".lines");
 			linesDiv.height( textarea.height() + 6 );
@@ -94,8 +94,8 @@
 			var linedWrapDivNewWidth 	= originalTextAreaWidth - paddingHorizontal;
 			var textareaNewWidth			= originalTextAreaWidth - sidebarWidth - paddingHorizontal - 20;
 
-			textarea.width( textareaNewWidth );
-			linedWrapDiv.width( linedWrapDivNewWidth );
+			//textarea.width( textareaNewWidth );
+			//linedWrapDiv.width( linedWrapDivNewWidth );
 			
 
 			
