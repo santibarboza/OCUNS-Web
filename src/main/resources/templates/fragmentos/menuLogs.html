@@ -1,0 +1,21 @@
+<div th:fragment="menuLogs">
+	<div class="dropdown btnXs">
+        <button class="btn btn-default dropdown-toggle col-md-2 col-xs-2 menuB" 
+          type="button" title="Opciones del Codigo Fuente" id="dropdownMenu1" 
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class=" glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right col-md-12 col-xs-11 btnXs" 
+          aria-labelledby="dropdownMenu1">
+          <li class="dropdown-header">Opciones de Logs de OCUNS</li>
+          <li><a class="btn" title="Borrar Logs"  @click="borrarLogs">
+              <span class="lyphicon glyphicon-trash menuCodeItem" aria-hidden="true"></span>
+              Borrar Logs
+          </a></li>
+          <li><a class="btn" title="Descargar Logs"  @click="descargarLogs">
+            <span class="glyphicon glyphicon-save menuCodeItem" aria-hidden="true"></span>
+            Descargar Logs
+          </a></li>
+        </ul>
+    </div>
+</div>

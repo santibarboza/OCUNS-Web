@@ -4,14 +4,15 @@
          <div class="panel panel-default" id="panelLogs">
             <div class="panel-heading">
               <h3 class="panel-title col-md-9 col-xs-9">Logs del Sistema</h3>
-              <button class="btn btn-default col-md-1 col-xs-1 menuB" title="Borrar Logs"  
+              <button class="btn btn-default col-md-1 col-xs-1 menuB btnBig" title="Borrar Logs"  
                   @click="borrarLogs">
                       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
               </button>
-              <button title="Descargar Logs" class="btn btn-default col-md-1 col-xs-1 menuB"
+              <button title="Descargar Logs" class="btn btn-default col-md-1 col-xs-1 menuB btnBig"
                   @click="descargarLogs">
                       <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
               </button>
+              <div th:include="fragmentos/menuLogs::menuLogs"></div>
               <botonDesplegar targets="#bodyLog" :desplegado="logs.desplegado">
               </botonDesplegar>
             </div>

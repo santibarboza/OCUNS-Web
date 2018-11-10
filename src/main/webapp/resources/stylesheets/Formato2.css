@@ -157,6 +157,9 @@ font-weight: 400;
         float: inherit; 
         width: 45%;
     }
+    .btnXs{
+        display: none;
+    }
 }
     #botoneraEjecucion2{
         display: none;
@@ -167,6 +170,9 @@ font-weight: 400;
  * Responsive
  ========================*/
 @media only screen and (max-width: 766px) {
+    .btnBig{
+        display: none;
+    }
 	.comments-container {
 		width: 480px;
 	}
