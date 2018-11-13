@@ -160,6 +160,14 @@ font-weight: 400;
     .btnXs{
         display: none;
     }
+    #panelInfo{
+        height: 100vh;
+        padding-top: 70px;
+    }
+    #panelImg{
+        height: 100vh;
+        padding-top: 70px;
+    }
 }
     #botoneraEjecucion2{
         display: none;
